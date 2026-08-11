@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Our Cakes | Cake Creation by Ripa</title>
+
+    <meta name="description"
+        content="Explore our homemade cake collection from Cake Creation by Ripa.">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                    NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+
+        <a class="navbar-brand d-flex align-items-center"
+            href="index.html">
+
+            <img src="images/logo/logo.png"
+                alt="Cake Creation by Ripa"
+                width="55"
+                height="55">
+
+            <span class="brand-name ms-2">
+
+                Cake Creation by Ripa
+
+            </span>
+
+        </a>
+
+
+        <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+            id="mainMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link active"
+                        href="cakes.html">
+
+                        Cakes
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="index.html#why-us">
+
+                        Why Us
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="index.html#reviews">
+
+                        Reviews
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                        href="index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <a href="https://wa.me/8801568012276"
+                target="_blank"
+                class="btn btn-order ms-lg-3">
+
+                <i class="bi bi-whatsapp"></i>
+
+                Order Now
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+                    PAGE HERO
+===================================================== -->
+
+<section class="cakes-page-hero">
+
+    <div class="container text-center">
+
+        <span class="section-small-title">
+
+            🍰 OUR CAKE COLLECTION
+
+        </span>
+
+
+        <h1>
+
+            Find Your Perfect Cake
+
+        </h1>
+
+
+        <p>
+
+            Fresh homemade cakes made specially
+            for your special moments.
+
+        </p>
+
+    </div>
+
+</section>
+
+ <!-- =====================================================
+                 CAKE GALLERY
+===================================================== -->
+
+<div class="container">
+
+    <!-- Search -->
+
+    <div class="cake-search">
+
+        <div class="search-box">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                id="cakeSearch"
+                placeholder="Search your favourite cake...">
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CAKE CATEGORIES
+    ========================= -->
+
+    <div class="cake-categories text-center">
+
+        <button
+            class="category-btn active"
+            data-category="all">
+
+            All Cakes
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="chocolate">
+
+            🍫 Chocolate
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="vanilla">
+
+            🍦 Vanilla
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="red-velvet">
+
+            ❤️ Red Velvet
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="birthday">
+
+            🎂 Birthday
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="wedding">
+
+            💍 Wedding
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="custom">
+
+            ✨ Custom
+
+        </button>
+
+    </div>
+ 
+        <!-- Cake Grid -->
+
+        <div class="row g-4" id="allCakes">
+
+
+            <!-- =========================
+                 CAKE 01
+            ========================= -->
+
+            <div class="col-md-6 col-lg-4 cake-item"
+    data-category="vanilla">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake1.jpg"
+                alt="Vanilla Cake">
+
+        </div>
+
+
+                    <div class="cake-card-body">
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+
+                        <h3>
+                            Vanilla Cake
+                        </h3>
+
+                        <p>
+                            Soft and delicious vanilla cake for every occasion.
+                        </p>
+
+
+                        <div class="cake-bottom">
+
+                            <span class="price">
+                                From ৳550
+                            </span>
+
+                            <button
+                                class="order-cake-btn"
+                                data-cake="Vanilla Cake">
+
+                                Order
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CAKE 02
+            ========================= -->
+
+<div class="col-md-6 col-lg-4 cake-item"
+    data-category="custom">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake2.jpg"
+                alt="Spiderman Theme Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Spiderman Theme Cake
+            </h3>
+
+            <p>
+                A red and blue Spider-Man cake with black spiderwebs.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳650
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Spiderman Theme Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+           <!-- =========================
+     CAKE 03
+========================= -->
+
+<div class="col-md-6 col-lg-4 cake-item"
+    data-category="red-velvet">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake3.jpg"
+                alt="Red Velvet Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Red Velvet Cake
+            </h3>
+
+            <p>
+                Soft, creamy and premium red velvet cake.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳900
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Red Velvet Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            <!-- =========================
+                 CAKE 04
+            ========================= -->
+
+            <div class="col-md-6 col-lg-4 cake-item"
+                data-category="birthday">
+
+                <div class="cake-card">
+
+                    <div class="cake-image">
+
+                        <img
+                            src="images/cakes/cake4.jpg"
+                            alt="Birthday Cake">
+
+                    </div>
+
+
+                    <div class="cake-card-body">
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+
+                        <h3>
+                            Birthday Cake
+                        </h3>
+
+                        <p>
+                            Beautiful customized
+                            birthday cake.
+                        </p>
+
+
+                        <div class="cake-bottom">
+
+                            <span class="price">
+                                From ৳600
+                            </span>
+
+                            <button
+                                class="order-cake-btn"
+                                data-cake="Birthday Cake">
+
+                                Order
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CAKE 05
+            ========================= -->
+
+            <div class="col-md-6 col-lg-4 cake-item"
+    data-category="wedding">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake5.jpg"
+                alt="Wedding Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Wedding Cake
+            </h3>
+
+            <p>
+                Delicious homemade cake made
+                with love and care.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳600
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Wedding Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+            <!-- =========================
+                 CAKE 06
+            ========================= -->
+
+            <div class="col-md-6 col-lg-4 cake-item"
+    data-category="wedding">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake6.jpg"
+                alt="Wedding Cake">
+       </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Wedding Cake
+            </h3>
+
+            <p>
+                Soft and delicious homemade
+                vanilla weddings cake.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳600
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Wedding Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+            <!-- =========================
+                 CAKE 07
+            ========================= -->
+
+            <div class="col-md-6 col-lg-4 cake-item"
+    data-category="chocolate">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake7.jpg"
+                alt="Chocolate Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Chocolate Cake
+            </h3>
+
+            <p>
+                Rich, moist and delicious homemade chocolate cake.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳650
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Chocolate Cake ">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- =========================
+     CAKE 08
+========================= -->
+
+<div class="col-md-6 col-lg-4 cake-item"
+    data-category="custom">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake8.jpg"
+                alt="Customized Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Customized Cake
+            </h3>
+
+            <p>
+                Elegant customized cake
+                for your special day.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳600
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Customized Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+     <!-- =========================
+     CAKE 09
+========================= -->
+
+<div class="col-md-6 col-lg-4 cake-item"
+    data-category="vanilla chocolate">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake9.jpg"
+                alt="Half Vanilla Half Chocolate Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Half Vanilla & Half Chocolate
+            </h3>
+
+            <p>
+                A delicious combination of
+                soft vanilla and rich chocolate.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳650
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Half Vanilla & Half Chocolate Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+     <!-- =========================
+     CAKE 10
+========================= -->
+
+<div class="col-md-6 col-lg-4 cake-item"
+    data-category="custom">
+
+    <div class="cake-card">
+
+        <div class="cake-image">
+
+            <img
+                src="images/cakes/cake10.jpg"
+                alt="Premium Anniversary Cake">
+
+        </div>
+
+        <div class="cake-card-body">
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <h3>
+                Premium Anniversary Cake
+            </h3>
+
+            <p>
+                Rich and delicious homemade
+                chocolate cake.
+            </p>
+
+            <div class="cake-bottom">
+
+                <span class="price">
+                    From ৳1,000
+                </span>
+
+                <button
+                    class="order-cake-btn"
+                    data-cake="Premium Anniversary Cake">
+
+                    Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- End Cake Grid -->
+
+
+        <!-- No Result -->
+
+        <div id="noCakeResult"
+            class="text-center mt-5"
+            style="display:none;">
+
+            <h4>
+                😔 No cake found
+            </h4>
+
+            <p>
+                Try another cake name.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+
+                    <img src="images/logo/logo.png"
+                        alt="Cake Creation by Ripa">
+
+                    <h3>
+
+                        Cake Creation by Ripa
+
+                    </h3>
+
+                </div>
+
+
+                <p>
+
+                    Homemade cakes made with love
+                    for your special moments.
+
+                </p>
+
+
+                <div class="footer-social">
+
+                    <a href="https://www.facebook.com/CakeCreationByRipa"
+                        target="_blank">
+
+                        <i class="bi bi-facebook"></i>
+
+                    </a>
+
+
+                    <a href="https://wa.me/8801568012276"
+                        target="_blank">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h4>
+
+                    Quick Links
+
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="cakes.html">
+                            Cakes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#reviews">
+                            Reviews
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+
+                <p>
+
+                    <i class="bi bi-geo-alt"></i>
+
+                    Bernaiya, Shahrasti,
+                    Chandpur-3623
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-telephone"></i>
+
+                    01568012276
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-envelope"></i>
+
+                    cakecreationbyripa@gmail.com
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-clock"></i>
+
+                    Open 24 Hours
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 Cake Creation by Ripa.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+                FLOATING WHATSAPP
+===================================================== -->
+
+<a href="https://wa.me/8801568012276"
+    target="_blank"
+    class="floating-whatsapp">
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
+
+
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- Order Wizard -->
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>
