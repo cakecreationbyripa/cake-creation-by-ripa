@@ -1418,7 +1418,7 @@ Homemade Cakes • Made with Love`;
                 /* WhatsApp Number */
 
                 const whatsappNumber =
-                    "8801568012276";
+                    "8801635651905";
 
 
                 const whatsappURL =
