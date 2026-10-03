@@ -1,59 +1,37 @@
-/* =========================================================
+script = r'''/* =========================================================
    CAKE CREATION BY RIPA
    COMPLETE SCRIPT.JS
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* =========================================================
        ELEMENTS
     ========================================================= */
 
-    const orderModal =
-        document.getElementById("orderModal");
-
-    const closeOrder =
-        document.getElementById("closeOrder");
-
-    const orderButtons =
-        document.querySelectorAll(".order-cake-btn");
-
-    const nextButtons =
-        document.querySelectorAll(".wizard-next");
-
-    const backButtons =
-        document.querySelectorAll(".wizard-back");
-
-    const steps =
-        document.querySelectorAll(".order-step-form");
-
-    const progressSteps =
-        document.querySelectorAll(".progress-step");
-
-    const progressLines =
-        document.querySelectorAll(".progress-line");
-
+    const orderModal = document.getElementById("orderModal");
+    const closeOrder = document.getElementById("closeOrder");
+    const orderButtons = document.querySelectorAll(".order-cake-btn");
+    const nextButtons = document.querySelectorAll(".wizard-next");
+    const backButtons = document.querySelectorAll(".wizard-back");
+    const steps = document.querySelectorAll(".order-step-form");
+    const progressSteps = document.querySelectorAll(".progress-step");
+    const progressLines = document.querySelectorAll(".progress-line");
 
     /* =========================================================
        VARIABLES
     ========================================================= */
 
     let selectedCake = "";
-
     let currentStep = 1;
-
     let quantity = 1;
-
 
     /* =========================================================
        CAKE PRICES
-       
-       এখান থেকে Cake-এর Pound অনুযায়ী Price change করতে পারবে।
+       Pound অনুযায়ী Price
     ========================================================= */
 
     const cakePrices = {
-
 
         "Chocolate Cake": {
             "0.5": 400,
@@ -64,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 1700
         },
 
-
         "Red Velvet": {
             "0.5": 550,
             "1": 850,
@@ -73,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 1800,
             "3": 2100
         },
-
 
         "Red Velvet Cake": {
             "0.5": 550,
@@ -84,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2100
         },
 
-
         "Vanilla Cake": {
             "0.5": 450,
             "1": 700,
@@ -93,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 1500,
             "3": 1750
         },
-
 
         "Birthday Cake": {
             "0.5": 600,
@@ -104,6 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2200
         },
 
+        "Wedding Cake": {
+            "0.5": 800,
+            "1": 1200,
+            "1.5": 1600,
+            "2": 2200,
+            "2.5": 2700,
+            "3": 3200
+        },
 
         "Half Vanilla & Half Chocolate Cake": {
             "0.5": 500,
@@ -114,16 +96,35 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2200
         },
 
+        /* Custom/theme cakes: price will use default until
+           separate custom pricing is decided. */
 
-        "Wedding Cake": {
-            "0.5": 800,
-            "1": 1200,
-            "1.5": 1600,
-            "2": 2200,
-            "2.5": 2700,
-            "3": 3200
+        "Spiderman Theme Cake": {
+            "0.5": 650,
+            "1": 900,
+            "1.5": 1200,
+            "2": 1550,
+            "2.5": 1900,
+            "3": 2300
         },
 
+        "Customized Cake": {
+            "0.5": 650,
+            "1": 900,
+            "1.5": 1200,
+            "2": 1600,
+            "2.5": 1950,
+            "3": 2400
+        },
+
+        "Premium Anniversary Cake": {
+            "0.5": 700,
+            "1": 1000,
+            "1.5": 1400,
+            "2": 1900,
+            "2.5": 2300,
+            "3": 2800
+        },
 
         "Premium Chocolate Cake": {
             "0.5": 550,
@@ -134,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2000
         },
 
-
         "Cake 05": {
             "0.5": 500,
             "1": 750,
@@ -143,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 1700,
             "3": 2000
         },
-
 
         "Cake 06": {
             "0.5": 550,
@@ -154,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2200
         },
 
-
         "Cake 07": {
             "0.5": 550,
             "1": 850,
@@ -163,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 1900,
             "3": 2300
         },
-
 
         "Cake 08": {
             "0.5": 600,
@@ -174,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2500
         },
 
-
         "Cake 09": {
             "0.5": 650,
             "1": 950,
@@ -184,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "3": 2700
         },
 
-
         "Cake 10": {
             "0.5": 700,
             "1": 1000,
@@ -193,9 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 2300,
             "3": 2800
         }
-
     };
-
 
     /* =========================================================
        OPEN ORDER MODAL
@@ -205,154 +198,85 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            selectedCake =
-                this.getAttribute("data-cake") || "";
-
-
-            /* Selected Cake Name */
+            selectedCake = this.getAttribute("data-cake") || "";
 
             const selectedCakeName =
-                document.getElementById(
-                    "selectedCakeName"
-                );
+                document.getElementById("selectedCakeName");
 
             if (selectedCakeName) {
-
-                selectedCakeName.textContent =
-                    selectedCake;
-
+                selectedCakeName.textContent = selectedCake;
             }
-
-
-            /* Reset Quantity */
 
             quantity = 1;
 
             const cakeQuantity =
-                document.getElementById(
-                    "cakeQuantity"
-                );
+                document.getElementById("cakeQuantity");
 
             if (cakeQuantity) {
-
                 cakeQuantity.textContent = "1";
-
             }
-
-
-            /* Reset Weight */
 
             const cakeWeight =
-                document.getElementById(
-                    "cakeWeight"
-                );
+                document.getElementById("cakeWeight");
 
             if (cakeWeight) {
-
                 cakeWeight.value = "1";
-
             }
-
-
-            /* Hide Custom Weight */
 
             const customWeightGroup =
-                document.getElementById(
-                    "customWeightGroup"
-                );
+                document.getElementById("customWeightGroup");
 
             if (customWeightGroup) {
-
-                customWeightGroup.style.display =
-                    "none";
-
+                customWeightGroup.style.display = "none";
             }
 
+            const customWeight =
+                document.getElementById("customWeight");
 
-            /* Update Price */
+            if (customWeight) {
+                customWeight.value = "";
+            }
 
             updateCakePrice();
-
-
-            /* Update Summary */
-
             updateSummary();
 
-
-            /* Start Step 1 */
-
             currentStep = 1;
-
             showStep(currentStep);
 
-
-            /* Open Modal */
-
             if (orderModal) {
-
                 orderModal.classList.add("show");
-
             }
 
-            document.body.classList.add(
-                "modal-open"
-            );
-
+            document.body.classList.add("modal-open");
         });
-
     });
-
 
     /* =========================================================
        CLOSE ORDER MODAL
     ========================================================= */
 
     if (closeOrder) {
-
-        closeOrder.addEventListener(
-            "click",
-            closeModal
-        );
-
+        closeOrder.addEventListener("click", closeModal);
     }
-
 
     if (orderModal) {
+        orderModal.addEventListener("click", function (event) {
 
-        orderModal.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target === orderModal
-                ) {
-
-                    closeModal();
-
-                }
-
+            if (event.target === orderModal) {
+                closeModal();
             }
-        );
 
+        });
     }
-
 
     function closeModal() {
 
         if (orderModal) {
-
-            orderModal.classList.remove(
-                "show"
-            );
-
+            orderModal.classList.remove("show");
         }
 
-        document.body.classList.remove(
-            "modal-open"
-        );
-
+        document.body.classList.remove("modal-open");
     }
-
 
     /* =========================================================
        SHOW STEP
@@ -361,100 +285,43 @@ document.addEventListener("DOMContentLoaded", function () {
     function showStep(stepNumber) {
 
         steps.forEach(function (step) {
-
-            step.classList.remove(
-                "active"
-            );
-
+            step.classList.remove("active");
         });
-
 
         const currentForm =
             document.querySelector(
                 `.order-step-form[data-step="${stepNumber}"]`
             );
 
-
         if (currentForm) {
-
-            currentForm.classList.add(
-                "active"
-            );
-
+            currentForm.classList.add("active");
         }
 
+        progressSteps.forEach(function (step, index) {
 
-        /* Progress Steps */
+            step.classList.remove("active", "completed");
 
-        progressSteps.forEach(
-            function (step, index) {
-
-                step.classList.remove(
-                    "active",
-                    "completed"
-                );
-
-
-                if (
-                    index + 1 < stepNumber
-                ) {
-
-                    step.classList.add(
-                        "completed"
-                    );
-
-                }
-
-                else if (
-                    index + 1 === stepNumber
-                ) {
-
-                    step.classList.add(
-                        "active"
-                    );
-
-                }
-
+            if (index + 1 < stepNumber) {
+                step.classList.add("completed");
             }
-        );
-
-
-        /* Progress Lines */
-
-        progressLines.forEach(
-            function (line, index) {
-
-                if (
-                    index + 1 < stepNumber
-                ) {
-
-                    line.classList.add(
-                        "completed"
-                    );
-
-                }
-
-                else {
-
-                    line.classList.remove(
-                        "completed"
-                    );
-
-                }
-
+            else if (index + 1 === stepNumber) {
+                step.classList.add("active");
             }
-        );
+        });
 
+        progressLines.forEach(function (line, index) {
+
+            if (index + 1 < stepNumber) {
+                line.classList.add("completed");
+            }
+            else {
+                line.classList.remove("completed");
+            }
+        });
 
         currentStep = stepNumber;
-
-
-        /* Update Summary */
-
         updateSummary();
-
     }
-
 
     /* =========================================================
        NEXT BUTTON
@@ -462,212 +329,124 @@ document.addEventListener("DOMContentLoaded", function () {
 
     nextButtons.forEach(function (button) {
 
-        button.addEventListener(
-            "click",
-            function () {
+        button.addEventListener("click", function () {
 
+            /* STEP 1 */
+            if (currentStep === 1) {
 
-                /* STEP 1 */
+                if (!selectedCake) {
+                    alert("Please select a cake first.");
+                    return;
+                }
+            }
 
-                if (currentStep === 1) {
+            /* STEP 2 */
+            if (currentStep === 2) {
 
-                    if (!selectedCake) {
+                const cakeWeight =
+                    document.getElementById("cakeWeight");
 
-                        alert(
-                            "Please select a cake first."
-                        );
-
-                        return;
-
-                    }
-
+                if (!cakeWeight) {
+                    alert("Please select cake weight.");
+                    return;
                 }
 
+                if (cakeWeight.value === "custom") {
 
-                /* STEP 2 */
-
-                if (currentStep === 2) {
-
-                    const cakeWeight =
-                        document.getElementById(
-                            "cakeWeight"
-                        );
-
-
-                    if (!cakeWeight) {
-
-                        alert(
-                            "Please select cake weight."
-                        );
-
-                        return;
-
-                    }
-
+                    const customWeight =
+                        document.getElementById("customWeight");
 
                     if (
-                        cakeWeight.value ===
-                        "custom"
+                        !customWeight ||
+                        !customWeight.value.trim()
                     ) {
-
-                        const customWeight =
-                            document.getElementById(
-                                "customWeight"
-                            );
-
-
-                        if (
-                            !customWeight ||
-                            !customWeight.value.trim()
-                        ) {
-
-                            alert(
-                                "Please enter custom cake weight."
-                            );
-
-                            return;
-
-                        }
-
+                        alert("Please enter custom cake weight.");
+                        return;
                     }
 
-                }
-
-
-                /* STEP 3 */
-
-                if (currentStep === 3) {
-
-                    const deliveryDate =
-                        document.getElementById(
-                            "deliveryDate"
-                        );
-
+                    const customValue =
+                        parseFloat(customWeight.value);
 
                     if (
-                        !deliveryDate ||
-                        !deliveryDate.value
+                        isNaN(customValue) ||
+                        customValue <= 0
                     ) {
-
-                        alert(
-                            "Please select your delivery date."
-                        );
-
+                        alert("Please enter a valid custom weight.");
                         return;
-
                     }
-
                 }
+            }
 
+            /* STEP 3 */
+            if (currentStep === 3) {
 
-                /* STEP 4 */
+                const deliveryDate =
+                    document.getElementById("deliveryDate");
 
-                if (currentStep === 4) {
+                if (!deliveryDate || !deliveryDate.value) {
+                    alert("Please select your delivery date.");
+                    return;
+                }
+            }
 
-                    const nameElement =
-                        document.getElementById(
-                            "customerName"
-                        );
+            /* STEP 4 */
+            if (currentStep === 4) {
 
+                const nameElement =
+                    document.getElementById("customerName");
 
-                    const mobileElement =
-                        document.getElementById(
-                            "customerMobile"
-                        );
+                const mobileElement =
+                    document.getElementById("customerMobile");
 
+                const addressElement =
+                    document.getElementById("deliveryAddress");
 
-                    const addressElement =
-                        document.getElementById(
-                            "deliveryAddress"
-                        );
-
-
-                    const name =
-                        nameElement
+                const name =
+                    nameElement
                         ? nameElement.value.trim()
                         : "";
 
-
-                    const mobile =
-                        mobileElement
+                const mobile =
+                    mobileElement
                         ? mobileElement.value.trim()
                         : "";
 
-
-                    const address =
-                        addressElement
+                const address =
+                    addressElement
                         ? addressElement.value.trim()
                         : "";
 
-
-                    if (!name) {
-
-                        alert(
-                            "Please enter your name."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (!mobile) {
-
-                        alert(
-                            "Please enter your mobile number."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (
-                        !/^01[0-9]{9}$/.test(
-                            mobile
-                        )
-                    ) {
-
-                        alert(
-                            "Please enter a valid 11-digit Bangladeshi mobile number."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (!address) {
-
-                        alert(
-                            "Please enter your delivery area."
-                        );
-
-                        return;
-
-                    }
-
-
-                    updateSummary();
-
+                if (!name) {
+                    alert("Please enter your name.");
+                    return;
                 }
 
+                if (!mobile) {
+                    alert("Please enter your mobile number.");
+                    return;
+                }
 
-                if (
-                    currentStep < 5
-                ) {
-
-                    showStep(
-                        currentStep + 1
+                if (!/^01[0-9]{9}$/.test(mobile)) {
+                    alert(
+                        "Please enter a valid 11-digit Bangladeshi mobile number."
                     );
-
+                    return;
                 }
 
+                if (!address) {
+                    alert("Please enter your delivery area.");
+                    return;
+                }
+
+                updateSummary();
             }
-        );
 
+            if (currentStep < 5) {
+                showStep(currentStep + 1);
+            }
+
+        });
     });
-
 
     /* =========================================================
        BACK BUTTON
@@ -675,92 +454,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backButtons.forEach(function (button) {
 
-        button.addEventListener(
-            "click",
-            function () {
+        button.addEventListener("click", function () {
 
-                if (
-                    currentStep > 1
-                ) {
-
-                    showStep(
-                        currentStep - 1
-                    );
-
-                }
-
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
             }
-        );
 
+        });
     });
-
 
     /* =========================================================
        CAKE WEIGHT
     ========================================================= */
 
     const cakeWeight =
-        document.getElementById(
-            "cakeWeight"
-        );
-
+        document.getElementById("cakeWeight");
 
     const customWeightGroup =
-        document.getElementById(
-            "customWeightGroup"
-        );
-
+        document.getElementById("customWeightGroup");
 
     const customWeight =
-        document.getElementById(
-            "customWeight"
-        );
-
+        document.getElementById("customWeight");
 
     if (cakeWeight) {
 
-        cakeWeight.addEventListener(
-            "change",
-            function () {
+        cakeWeight.addEventListener("change", function () {
 
+            if (this.value === "custom") {
 
-                if (
-                    this.value ===
-                    "custom"
-                ) {
-
-                    if (customWeightGroup) {
-
-                        customWeightGroup.style.display =
-                            "block";
-
-                    }
-
+                if (customWeightGroup) {
+                    customWeightGroup.style.display = "block";
                 }
-
-                else {
-
-                    if (customWeightGroup) {
-
-                        customWeightGroup.style.display =
-                            "none";
-
-                    }
-
-                }
-
-
-                /* VERY IMPORTANT */
-
-                updateCakePrice();
-
-                updateSummary();
 
             }
-        );
+            else {
 
+                if (customWeightGroup) {
+                    customWeightGroup.style.display = "none";
+                }
+            }
+
+            updateCakePrice();
+            updateSummary();
+        });
     }
-
 
     /* =========================================================
        CUSTOM WEIGHT
@@ -768,101 +505,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (customWeight) {
 
-        customWeight.addEventListener(
-            "input",
-            function () {
-
-                updateSummary();
-
-            }
-        );
-
+        customWeight.addEventListener("input", function () {
+            updateSummary();
+        });
     }
-
 
     /* =========================================================
        QUANTITY
     ========================================================= */
 
     const minusQty =
-        document.getElementById(
-            "minusQty"
-        );
-
+        document.getElementById("minusQty");
 
     const plusQty =
-        document.getElementById(
-            "plusQty"
-        );
-
+        document.getElementById("plusQty");
 
     const cakeQuantity =
-        document.getElementById(
-            "cakeQuantity"
-        );
-
+        document.getElementById("cakeQuantity");
 
     if (minusQty) {
 
-        minusQty.addEventListener(
-            "click",
-            function () {
+        minusQty.addEventListener("click", function () {
 
-                if (
-                    quantity > 1
-                ) {
+            if (quantity > 1) {
 
-                    quantity--;
+                quantity--;
 
-                    if (cakeQuantity) {
-
-                        cakeQuantity.textContent =
-                            quantity;
-
-                    }
-
-                    updateCakePrice();
-
-                    updateSummary();
-
+                if (cakeQuantity) {
+                    cakeQuantity.textContent = quantity;
                 }
 
+                updateCakePrice();
+                updateSummary();
             }
-        );
-
+        });
     }
-
 
     if (plusQty) {
 
-        plusQty.addEventListener(
-            "click",
-            function () {
+        plusQty.addEventListener("click", function () {
 
-                if (
-                    quantity < 20
-                ) {
+            if (quantity < 20) {
 
-                    quantity++;
+                quantity++;
 
-                    if (cakeQuantity) {
-
-                        cakeQuantity.textContent =
-                            quantity;
-
-                    }
-
-                    updateCakePrice();
-
-                    updateSummary();
-
+                if (cakeQuantity) {
+                    cakeQuantity.textContent = quantity;
                 }
 
+                updateCakePrice();
+                updateSummary();
             }
-        );
-
+        });
     }
-
 
     /* =========================================================
        GET CURRENT PRICE
@@ -871,44 +566,28 @@ document.addEventListener("DOMContentLoaded", function () {
     function getCurrentPrice() {
 
         const weightElement =
-            document.getElementById(
-                "cakeWeight"
-            );
-
+            document.getElementById("cakeWeight");
 
         const weight =
             weightElement
-            ? weightElement.value
-            : "1";
+                ? weightElement.value
+                : "1";
 
-
-        if (
-            weight === "custom"
-        ) {
-
+        if (weight === "custom") {
             return null;
-
         }
 
-
         let unitPrice = 650;
-
 
         if (
             cakePrices[selectedCake] &&
             cakePrices[selectedCake][weight]
         ) {
-
-            unitPrice =
-                cakePrices[selectedCake][weight];
-
+            unitPrice = cakePrices[selectedCake][weight];
         }
 
-
         return unitPrice * quantity;
-
     }
-
 
     /* =========================================================
        UPDATE CAKE PRICE
@@ -917,41 +596,22 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCakePrice() {
 
         const priceElement =
-            document.getElementById(
-                "estimatedPrice"
-            );
-
+            document.getElementById("estimatedPrice");
 
         if (!priceElement) {
-
             return;
-
         }
 
+        const totalPrice = getCurrentPrice();
 
-        const totalPrice =
-            getCurrentPrice();
-
-
-        if (
-            totalPrice === null
-        ) {
-
-            priceElement.textContent =
-                "Custom Price";
-
+        if (totalPrice === null) {
+            priceElement.textContent = "Custom Price";
         }
-
         else {
-
             priceElement.textContent =
-                "৳" +
-                totalPrice.toLocaleString();
-
+                "৳" + totalPrice.toLocaleString();
         }
-
     }
-
 
     /* =========================================================
        UPDATE ORDER SUMMARY
@@ -959,274 +619,146 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSummary() {
 
-
-        /* Customer Name */
-
         const nameElement =
-            document.getElementById(
-                "customerName"
-            );
-
+            document.getElementById("customerName");
 
         const name =
             nameElement
-            ? nameElement.value.trim()
-            : "";
-
-
-        /* Mobile */
+                ? nameElement.value.trim()
+                : "";
 
         const mobileElement =
-            document.getElementById(
-                "customerMobile"
-            );
-
+            document.getElementById("customerMobile");
 
         const mobile =
             mobileElement
-            ? mobileElement.value.trim()
-            : "";
-
-
-        /* Address */
+                ? mobileElement.value.trim()
+                : "";
 
         const addressElement =
-            document.getElementById(
-                "deliveryAddress"
-            );
-
+            document.getElementById("deliveryAddress");
 
         const address =
             addressElement
-            ? addressElement.value.trim()
-            : "";
-
-
-        /* Date */
+                ? addressElement.value.trim()
+                : "";
 
         const dateElement =
-            document.getElementById(
-                "deliveryDate"
-            );
-
+            document.getElementById("deliveryDate");
 
         const date =
             dateElement
-            ? dateElement.value
-            : "";
-
-
-        /* Weight */
+                ? dateElement.value
+                : "";
 
         const weightElement =
-            document.getElementById(
-                "cakeWeight"
-            );
-
+            document.getElementById("cakeWeight");
 
         const weight =
             weightElement
-            ? weightElement.value
-            : "1";
-
+                ? weightElement.value
+                : "1";
 
         let displayWeight;
 
-
-        if (
-            weight === "custom"
-        ) {
+        if (weight === "custom") {
 
             displayWeight =
                 customWeight &&
                 customWeight.value.trim()
-                ? customWeight.value.trim()
-                : "Custom";
+                    ? customWeight.value.trim() + " Pound"
+                    : "Custom";
 
         }
-
         else {
-
-            displayWeight =
-                weight +
-                " Pound";
-
+            displayWeight = weight + " Pound";
         }
 
-
-        /* Price */
-
-        const totalPrice =
-            getCurrentPrice();
-
+        const totalPrice = getCurrentPrice();
 
         let displayPrice;
 
-
-        if (
-            totalPrice === null
-        ) {
-
-            displayPrice =
-                "Custom Price";
-
+        if (totalPrice === null) {
+            displayPrice = "Custom Price";
         }
-
         else {
-
             displayPrice =
-                "৳" +
-                totalPrice.toLocaleString();
-
+                "৳" + totalPrice.toLocaleString();
         }
-
-
-        /* =====================================================
-           SUMMARY ELEMENTS
-        ===================================================== */
-
 
         const summaryCake =
-            document.getElementById(
-                "summaryCake"
-            );
-
+            document.getElementById("summaryCake");
 
         if (summaryCake) {
-
             summaryCake.textContent =
                 selectedCake || "-";
-
         }
-
 
         const summaryWeight =
-            document.getElementById(
-                "summaryWeight"
-            );
-
+            document.getElementById("summaryWeight");
 
         if (summaryWeight) {
-
-            summaryWeight.textContent =
-                displayWeight;
-
+            summaryWeight.textContent = displayWeight;
         }
-
 
         const summaryQuantity =
-            document.getElementById(
-                "summaryQuantity"
-            );
-
+            document.getElementById("summaryQuantity");
 
         if (summaryQuantity) {
-
-            summaryQuantity.textContent =
-                quantity;
-
+            summaryQuantity.textContent = quantity;
         }
-
 
         const summaryPrice =
-            document.getElementById(
-                "summaryPrice"
-            );
-
+            document.getElementById("summaryPrice");
 
         if (summaryPrice) {
-
-            summaryPrice.textContent =
-                displayPrice;
-
+            summaryPrice.textContent = displayPrice;
         }
-
 
         const summaryDate =
-            document.getElementById(
-                "summaryDate"
-            );
-
+            document.getElementById("summaryDate");
 
         if (summaryDate) {
-
-            summaryDate.textContent =
-                formatDate(date);
-
+            summaryDate.textContent = formatDate(date);
         }
-
 
         const summaryName =
-            document.getElementById(
-                "summaryName"
-            );
-
+            document.getElementById("summaryName");
 
         if (summaryName) {
-
-            summaryName.textContent =
-                name || "-";
-
+            summaryName.textContent = name || "-";
         }
-
 
         const summaryMobile =
-            document.getElementById(
-                "summaryMobile"
-            );
-
+            document.getElementById("summaryMobile");
 
         if (summaryMobile) {
-
-            summaryMobile.textContent =
-                mobile || "-";
-
+            summaryMobile.textContent = mobile || "-";
         }
-
 
         const summaryAddress =
-            document.getElementById(
-                "summaryAddress"
-            );
-
+            document.getElementById("summaryAddress");
 
         if (summaryAddress) {
-
-            summaryAddress.textContent =
-                address || "-";
-
+            summaryAddress.textContent = address || "-";
         }
-
     }
-
 
     /* =========================================================
        LIVE SUMMARY UPDATE
     ========================================================= */
 
     const customerName =
-        document.getElementById(
-            "customerName"
-        );
-
+        document.getElementById("customerName");
 
     const customerMobile =
-        document.getElementById(
-            "customerMobile"
-        );
-
+        document.getElementById("customerMobile");
 
     const deliveryAddress =
-        document.getElementById(
-            "deliveryAddress"
-        );
-
+        document.getElementById("deliveryAddress");
 
     const deliveryDate =
-        document.getElementById(
-            "deliveryDate"
-        );
-
+        document.getElementById("deliveryDate");
 
     [
         customerName,
@@ -1242,16 +774,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateSummary
             );
 
-
             element.addEventListener(
                 "change",
                 updateSummary
             );
-
         }
-
     });
-
 
     /* =========================================================
        FORMAT DATE
@@ -1260,18 +788,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function formatDate(dateString) {
 
         if (!dateString) {
-
             return "-";
-
         }
 
-
         const date =
-            new Date(
-                dateString +
-                "T00:00:00"
-            );
-
+            new Date(dateString + "T00:00:00");
 
         return date.toLocaleDateString(
             "en-GB",
@@ -1281,112 +802,72 @@ document.addEventListener("DOMContentLoaded", function () {
                 year: "numeric"
             }
         );
-
     }
-
 
     /* =========================================================
        WHATSAPP ORDER
     ========================================================= */
 
     const confirmOrder =
-        document.getElementById(
-            "confirmOrder"
-        );
-
+        document.getElementById("confirmOrder");
 
     if (confirmOrder) {
 
-        confirmOrder.addEventListener(
-            "click",
-            function () {
+        confirmOrder.addEventListener("click", function () {
 
-
-                /* Customer */
-
-                const name =
-                    customerName
+            const name =
+                customerName
                     ? customerName.value.trim()
                     : "";
 
-
-                const mobile =
-                    customerMobile
+            const mobile =
+                customerMobile
                     ? customerMobile.value.trim()
                     : "";
 
-
-                const address =
-                    deliveryAddress
+            const address =
+                deliveryAddress
                     ? deliveryAddress.value.trim()
                     : "";
 
-
-                /* Date */
-
-                const date =
-                    deliveryDate
+            const date =
+                deliveryDate
                     ? deliveryDate.value
                     : "";
 
-
-                /* Weight */
-
-                const weight =
-                    cakeWeight
+            const weight =
+                cakeWeight
                     ? cakeWeight.value
                     : "1";
 
+            let displayWeight;
 
-                let displayWeight;
+            if (weight === "custom") {
 
-
-                if (
-                    weight ===
-                    "custom"
-                ) {
-
-                    displayWeight =
-                        customWeight &&
-                        customWeight.value.trim()
-                        ? customWeight.value.trim()
+                displayWeight =
+                    customWeight &&
+                    customWeight.value.trim()
+                        ? customWeight.value.trim() + " Pound"
                         : "Custom";
 
-                }
+            }
+            else {
+                displayWeight = weight + " Pound";
+            }
 
-                else {
+            const totalPriceValue =
+                getCurrentPrice();
 
-                    displayWeight =
-                        weight +
-                        " Pound";
-
-                }
-
-
-                /* Price */
-
-                const totalPriceValue =
-                    getCurrentPrice();
-
-
-                const totalPrice =
-                    totalPriceValue === null
+            const totalPrice =
+                totalPriceValue === null
                     ? "Custom Price"
                     : "৳" +
                       totalPriceValue.toLocaleString();
 
+            const formattedDate =
+                formatDate(date);
 
-                /* Formatted Date */
-
-                const formattedDate =
-                    formatDate(date);
-
-
-                /* =================================================
-                   WHATSAPP MESSAGE
-                ================================================= */
-
-                const message =
+            const message =
 `🍰 *NEW CAKE ORDER*
 
 ━━━━━━━━━━━━━━━━━━
@@ -1414,32 +895,21 @@ document.addEventListener("DOMContentLoaded", function () {
 ❤️ Cake Creation by Ripa
 Homemade Cakes • Made with Love`;
 
+            const whatsappNumber =
+                "8801635651905";
 
-                /* WhatsApp Number */
+            const whatsappURL =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                encodeURIComponent(message);
 
-                const whatsappNumber =
-                    "8801635651905";
-
-
-                const whatsappURL =
-                    "https://wa.me/" +
-                    whatsappNumber +
-                    "?text=" +
-                    encodeURIComponent(
-                        message
-                    );
-
-
-                window.open(
-                    whatsappURL,
-                    "_blank"
-                );
-
-            }
-        );
-
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+        });
     }
-
 
     /* =========================================================
        DELIVERY DATE
@@ -1449,248 +919,149 @@ Homemade Cakes • Made with Love`;
 
         const today =
             new Date()
-            .toISOString()
-            .split("T")[0];
+                .toISOString()
+                .split("T")[0];
 
-
-        deliveryDate.min =
-            today;
-
+        deliveryDate.min = today;
     }
 
+    /* =========================================================
+       CAKE SEARCH & CATEGORY FILTER
+    ========================================================= */
 
-/* =========================================================
-   CAKE SEARCH & CATEGORY FILTER
-========================================================= */
+    const cakeSearch =
+        document.getElementById("cakeSearch");
 
-const cakeSearch =
-    document.getElementById(
-        "cakeSearch"
-    );
+    const categoryButtons =
+        document.querySelectorAll(".category-btn");
 
+    const cakeItems =
+        document.querySelectorAll(".cake-item");
 
-const categoryButtons =
-    document.querySelectorAll(
-        ".category-btn"
-    );
+    const noCakeResult =
+        document.getElementById("noCakeResult");
 
+    /* =========================================================
+       FILTER CAKES
+    ========================================================= */
 
-const cakeItems =
-    document.querySelectorAll(
-        ".cake-item"
-    );
+    function filterCakes() {
 
+        if (!cakeItems.length) {
+            return;
+        }
 
-const noCakeResult =
-    document.getElementById(
-        "noCakeResult"
-    );
+        const searchText =
+            cakeSearch
+                ? cakeSearch.value
+                    .toLowerCase()
+                    .trim()
+                : "";
 
+        const activeCategory =
+            document.querySelector(
+                ".category-btn.active"
+            );
 
-/* =========================================================
-   FILTER CAKES
-========================================================= */
+        const category =
+            activeCategory
+                ? activeCategory.dataset.category.toLowerCase()
+                : "all";
 
-function filterCakes() {
+        let visibleCount = 0;
 
-    if (!cakeItems.length) {
-
-        return;
-
-    }
-
-
-    /* Search Text */
-
-    const searchText =
-        cakeSearch
-        ? cakeSearch.value
-            .toLowerCase()
-            .trim()
-        : "";
-
-
-    /* Active Category */
-
-    const activeCategory =
-        document.querySelector(
-            ".category-btn.active"
-        );
-
-
-    const category =
-        activeCategory
-        ? activeCategory.dataset.category
-            .toLowerCase()
-        : "all";
-
-
-    let visibleCount = 0;
-
-
-    /* =====================================================
-       CHECK EVERY CAKE
-    ===================================================== */
-
-    cakeItems.forEach(
-        function (item) {
-
-
-            /* Cake Text */
+        cakeItems.forEach(function (item) {
 
             const cakeText =
-                item.innerText
-                    .toLowerCase();
-
-
-            /* =================================================
-               MULTIPLE CATEGORIES
-
-               Example:
-               data-category="vanilla chocolate"
-
-               This cake will appear in both
-               Vanilla and Chocolate.
-            ================================================= */
+                item.innerText.toLowerCase();
 
             const itemCategories =
                 item.dataset.category
-                ? item.dataset.category
-                    .toLowerCase()
-                    .split(/\s+/)
-                : [];
-
-
-            /* Search Match */
+                    ? item.dataset.category
+                        .toLowerCase()
+                        .split(/\s+/)
+                    : [];
 
             const matchesSearch =
-                cakeText.includes(
-                    searchText
-                );
-
-
-            /* Category Match */
+                cakeText.includes(searchText);
 
             const matchesCategory =
                 category === "all" ||
-                itemCategories.includes(
-                    category
-                );
-
-
-            /* =================================================
-               SHOW / HIDE
-            ================================================= */
+                itemCategories.includes(category);
 
             if (
                 matchesSearch &&
                 matchesCategory
             ) {
 
-                item.classList.remove(
-                    "hidden"
-                );
-
+                item.classList.remove("hidden");
                 visibleCount++;
 
             }
-
             else {
-
-                item.classList.add(
-                    "hidden"
-                );
-
+                item.classList.add("hidden");
             }
+        });
 
+        if (noCakeResult) {
+
+            noCakeResult.style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
         }
-    );
-
-
-    /* =====================================================
-       NO RESULT MESSAGE
-    ===================================================== */
-
-    if (noCakeResult) {
-
-        noCakeResult.style.display =
-            visibleCount === 0
-            ? "block"
-            : "none";
-
     }
 
-}
+    /* =========================================================
+       SEARCH EVENT
+    ========================================================= */
 
+    if (cakeSearch) {
 
-/* =========================================================
-   SEARCH EVENT
-========================================================= */
+        cakeSearch.addEventListener(
+            "input",
+            filterCakes
+        );
+    }
 
-if (cakeSearch) {
+    /* =========================================================
+       CATEGORY BUTTON EVENT
+    ========================================================= */
 
-    cakeSearch.addEventListener(
-        "input",
-        filterCakes
-    );
-
-}
-
-
-/* =========================================================
-   CATEGORY BUTTON EVENT
-========================================================= */
-
-categoryButtons.forEach(
-    function (button) {
+    categoryButtons.forEach(function (button) {
 
         button.addEventListener(
             "click",
             function () {
 
-
-                /* Remove Active */
-
                 categoryButtons.forEach(
                     function (btn) {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
+                        btn.classList.remove("active");
                     }
                 );
 
-
-                /* Add Active */
-
-                this.classList.add(
-                    "active"
-                );
-
-
-                /* Filter Cakes */
+                this.classList.add("active");
 
                 filterCakes();
-
             }
         );
+    });
 
-    }
-);
+    /* =========================================================
+       INITIAL FILTER
+    ========================================================= */
 
+    filterCakes();
 
-/* =========================================================
-   INITIAL FILTER
-========================================================= */
+    /* =========================================================
+       INITIAL ORDER SUMMARY
+    ========================================================= */
 
-filterCakes();
-
-
-/* =========================================================
-   INITIAL ORDER SUMMARY
-========================================================= */
-
-updateSummary();
+    updateSummary();
 
 });
+'''
+path = "/mnt/data/script.js"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(script)
+print(path)
