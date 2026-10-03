@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,43 +12,31 @@
     <meta name="description"
         content="Cake Creation by Ripa - Fresh homemade cakes for birthdays, anniversaries, weddings and special celebrations in Shahrasti and Monohargonj.">
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Our CSS -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
                     NAVBAR
 ===================================================== -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-
     <div class="container">
 
-        <!-- Logo -->
-
-        <a class="navbar-brand d-flex align-items-center"
-            href="#home">
-
+        <a class="navbar-brand d-flex align-items-center" href="#home">
             <img src="logo.png"
                 alt="Cake Creation by Ripa Logo"
                 width="60"
@@ -56,11 +45,7 @@
             <span class="brand-name ms-2">
                 Cake Creation by Ripa
             </span>
-
         </a>
-
-
-        <!-- Mobile Menu Button -->
 
         <button class="navbar-toggler"
             type="button"
@@ -68,194 +53,103 @@
             data-bs-target="#mainMenu">
 
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
-
-        <!-- Menu -->
-
-        <div class="collapse navbar-collapse"
-            id="mainMenu">
+        <div class="collapse navbar-collapse" id="mainMenu">
 
             <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-
-                    <a class="nav-link active"
-                        href="#home">
-
-                        Home
-
-                    </a>
-
+                    <a class="nav-link active" href="#home">Home</a>
                 </li>
 
-
                 <li class="nav-item">
-
-                    <a class="nav-link"
-                        href="#cakes">
-
-                        Cakes
-
-                    </a>
-
+                    <a class="nav-link" href="#cakes">Cakes</a>
                 </li>
 
-
                 <li class="nav-item">
-
-                    <a class="nav-link"
-                        href="#why-us">
-
-                        Why Us
-
-                    </a>
-
+                    <a class="nav-link" href="#why-us">Why Us</a>
                 </li>
 
-
                 <li class="nav-item">
-
-                    <a class="nav-link"
-                        href="#reviews">
-
-                        Reviews
-
-                    </a>
-
+                    <a class="nav-link" href="#reviews">Reviews</a>
                 </li>
 
-
                 <li class="nav-item">
-
-                    <a class="nav-link"
-                        href="#contact">
-
-                        Contact
-
-                    </a>
-
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
 
             </ul>
-
-
-            <!-- Order Button -->
 
             <a href="https://wa.me/8801635651905"
                 target="_blank"
                 class="btn btn-order ms-lg-3">
 
                 <i class="bi bi-whatsapp"></i>
-
                 Order Now
 
             </a>
 
         </div>
-
     </div>
-
 </nav>
-
 
 
 <!-- =====================================================
                     HERO SECTION
 ===================================================== -->
 
-<section class="hero"
-    id="home">
+<section class="hero" id="home">
 
     <div class="container">
 
         <div class="row align-items-center">
 
-
-            <!-- Hero Text -->
-
             <div class="col-lg-6 hero-content">
 
                 <span class="hero-small-title">
-
                     🍰 Homemade With Love
-
                 </span>
 
-
                 <h1>
-
                     Fresh Homemade
                     <span>Cakes</span>
-
                 </h1>
 
-
                 <h3>
-
                     Crafted With Love ❤️
-
                 </h3>
 
-
                 <p>
-
-                    Celebrate your special moments with
-                    delicious homemade cakes made with
-                    love and care.
-
-                    From birthdays and anniversaries
-                    to weddings and every joyful
-                    celebration.
-
+                    Celebrate your special moments with delicious homemade
+                    cakes made with love and care. From birthdays and
+                    anniversaries to weddings and every joyful celebration.
                 </p>
-
 
                 <p class="delivery-text">
-
                     <i class="bi bi-geo-alt-fill"></i>
-
                     Serving
-
-                    <strong>
-                        Shahrasti & Monohargonj
-                    </strong>
-
+                    <strong>Shahrasti & Monohargonj</strong>
                 </p>
-
-
-                <!-- Hero Buttons -->
 
                 <div class="hero-buttons">
 
-                    <a href="#cakes"
-                        class="btn btn-pink">
-
+                    <a href="#cakes" class="btn btn-pink">
                         <i class="bi bi-cake2"></i>
-
                         Browse Cakes
-
                     </a>
-
 
                     <a href="https://wa.me/8801635651905"
                         target="_blank"
                         class="btn btn-outline-dark">
 
                         <i class="bi bi-whatsapp"></i>
-
                         WhatsApp
-
                     </a>
 
                 </div>
 
             </div>
-
-
-
-            <!-- Hero Image -->
 
             <div class="col-lg-6 text-center">
 
@@ -276,322 +170,205 @@
 </section>
 
 
-
 <!-- =====================================================
                 CAKE GALLERY
 ===================================================== -->
 
-<section class="cakes-section"
-    id="cakes">
+<section class="cakes-section" id="cakes">
 
     <div class="container">
-
-
-        <!-- Section Heading -->
 
         <div class="section-heading text-center">
 
             <span class="section-small-title">
-
                 🍰 OUR COLLECTION
-
             </span>
 
             <h2>
-
                 Our Signature Cakes
-
             </h2>
 
             <p>
-
-                Choose your favourite cake and
-                place your order easily.
-
+                Choose your favourite cake and place your order easily.
             </p>
 
         </div>
 
-
-
-        <!-- Cake Cards -->
-
         <div class="row g-4">
 
-
             <!-- Cake 01 -->
-
             <div class="col-lg-3 col-md-6">
-
                 <div class="cake-card">
 
                     <div class="cake-image">
-
-                        <img src="cake1.jpg"
-                            alt="Vanilla Cake">
+                        <img src="cake1.jpg" alt="Vanilla Cake">
 
                         <span class="cake-badge">
-
                             Most Popular
-
                         </span>
-
                     </div>
-
 
                     <div class="cake-card-body">
 
                         <div class="rating">
-
                             ⭐⭐⭐⭐⭐
-
                         </div>
 
-                        <h3>
-
-                            Vanilla Cake
-
-                        </h3>
+                        <h3>Vanilla Cake</h3>
 
                         <p>
-
-                            Fresh and soft vanilla cake for every occasion. 
-
+                            Fresh and soft vanilla cake for every occasion.
                         </p>
 
                         <div class="cake-bottom">
 
                             <span class="price">
-
-                               From ৳550
-
+                                From ৳700
                             </span>
 
                             <button class="order-cake-btn"
-                                data-cake="Chocolate Cake">
-
+                                data-cake="Vanilla Cake">
                                 Order
-
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
 
-
             <!-- Cake 02 -->
-
             <div class="col-lg-3 col-md-6">
-
                 <div class="cake-card">
 
                     <div class="cake-image">
-
                         <img src="cake2.jpg"
                             alt="Spiderman Theme Cake">
 
                         <span class="cake-badge">
-
                             Bestseller
-
                         </span>
-
                     </div>
-
 
                     <div class="cake-card-body">
 
                         <div class="rating">
-
                             ⭐⭐⭐⭐⭐
-
                         </div>
 
-                        <h3>
-
-                            Spiderman Theme Cake
-
-                        </h3>
+                        <h3>Spiderman Theme Cake</h3>
 
                         <p>
-
-                           A red and blue Spider-Man cake with black spiderwebs.
-
+                            A red and blue Spider-Man cake with black spiderwebs.
                         </p>
 
                         <div class="cake-bottom">
 
                             <span class="price">
-
                                 From ৳650
-
                             </span>
 
                             <button class="order-cake-btn"
                                 data-cake="Spiderman Theme Cake">
-
                                 Order
-
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
 
-
             <!-- Cake 03 -->
-
             <div class="col-lg-3 col-md-6">
-
                 <div class="cake-card">
 
                     <div class="cake-image">
-
                         <img src="cake3.jpg"
                             alt="Red Velvet Cake">
 
-                            <span class="cake-badge">
-
+                        <span class="cake-badge">
                             Special
-
                         </span>
-
                     </div>
-
 
                     <div class="cake-card-body">
 
                         <div class="rating">
-
                             ⭐⭐⭐⭐⭐
-
                         </div>
 
-                        <h3>
-
-                            Red Velvet Cake
-
-                        </h3>
+                        <h3>Red Velvet Cake</h3>
 
                         <p>
-
-                           Soft, creamy and premium red velvet cake.
-
+                            Soft, creamy and premium red velvet cake.
                         </p>
 
                         <div class="cake-bottom">
 
                             <span class="price">
-
-                                From ৳900
-
+                                From ৳850
                             </span>
 
                             <button class="order-cake-btn"
                                 data-cake="Red Velvet Cake">
-
                                 Order
-
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
 
-
             <!-- Cake 04 -->
-
             <div class="col-lg-3 col-md-6">
-
                 <div class="cake-card">
 
                     <div class="cake-image">
-
                         <img src="cake4.jpg"
                             alt="Birthday Cake">
 
                         <span class="cake-badge">
-
                             Best Wishes
-
                         </span>
-
                     </div>
-
 
                     <div class="cake-card-body">
 
                         <div class="rating">
-
                             ⭐⭐⭐⭐⭐
-
                         </div>
 
-                        <h3>
-
-                            Birthday Cake
-
-                        </h3>
+                        <h3>Birthday Cake</h3>
 
                         <p>
-
-                            Beautiful customized
-                            birthday cakes.
-
+                            Beautiful customized birthday cakes.
                         </p>
 
                         <div class="cake-bottom">
 
                             <span class="price">
-
-                                From ৳600
-
+                                From ৳900
                             </span>
 
                             <button class="order-cake-btn"
                                 data-cake="Birthday Cake">
-
                                 Order
-
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
         </div>
 
-
-        <!-- View All Button -->
-
         <div class="text-center mt-5">
 
-            <a href="cakes.html"
-                class="btn btn-outline-pink">
-
+            <a href="cakes.html" class="btn btn-pink">
                 View All Cakes
-
                 <i class="bi bi-arrow-right"></i>
-
             </a>
 
         </div>
@@ -601,64 +378,44 @@
 </section>
 
 
-
 <!-- =====================================================
-                WHY CHOOSE US
+                    WHY US
 ===================================================== -->
 
-<section class="why-us"
-    id="why-us">
+<section class="why-us-section" id="why-us">
 
     <div class="container">
 
         <div class="section-heading text-center">
 
             <span class="section-small-title">
-
-                ❤️ WHY CHOOSE US
-
+                💖 WHY CHOOSE US
             </span>
 
             <h2>
-
-                Made With Love, Served With Care
-
+                Made With Love & Care
             </h2>
 
             <p>
-
-                We care about every cake we make
-                and every customer we serve.
-
+                Every cake is prepared specially for your celebration.
             </p>
 
         </div>
 
+        <div class="row g-4">
 
-        <div class="row g-4 mt-3">
+            <div class="col-md-6 col-lg-3">
 
+                <div class="feature-card text-center">
 
-            <div class="col-lg-3 col-md-6">
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-
-                        <i class="bi bi-heart-fill"></i>
-
-                    </div>
+                    <i class="bi bi-heart-fill"></i>
 
                     <h3>
-
-                        Homemade With Love
-
+                        Homemade
                     </h3>
 
                     <p>
-
-                        Every cake is carefully
-                        prepared with love and care.
-
+                        Fresh homemade cakes prepared with care.
                     </p>
 
                 </div>
@@ -666,28 +423,18 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3">
 
-            <div class="col-lg-3 col-md-6">
+                <div class="feature-card text-center">
 
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-
-                        <i class="bi bi-stars"></i>
-
-                    </div>
+                    <i class="bi bi-stars"></i>
 
                     <h3>
-
-                        Premium Quality
-
+                        Fresh & Delicious
                     </h3>
 
                     <p>
-
-                        We use quality ingredients
-                        for delicious cakes.
-
+                        Quality ingredients and delicious taste.
                     </p>
 
                 </div>
@@ -695,28 +442,18 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3">
 
-            <div class="col-lg-3 col-md-6">
+                <div class="feature-card text-center">
 
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-
-                        <i class="bi bi-palette"></i>
-
-                    </div>
+                    <i class="bi bi-palette-fill"></i>
 
                     <h3>
-
-                        Custom Designs
-
+                        Custom Design
                     </h3>
 
                     <p>
-
-                        Create a special cake
-                        according to your choice.
-
+                        Customized cakes for your special moments.
                     </p>
 
                 </div>
@@ -724,28 +461,18 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3">
 
-            <div class="col-lg-3 col-md-6">
+                <div class="feature-card text-center">
 
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-
-                        <i class="bi bi-truck"></i>
-
-                    </div>
+                    <i class="bi bi-truck"></i>
 
                     <h3>
-
                         Local Delivery
-
                     </h3>
 
                     <p>
-
-                        Delivery available in
-                        Shahrasti & Monohargonj.
-
+                        Delivery available around Shahrasti & Monohargonj.
                     </p>
 
                 </div>
@@ -759,63 +486,46 @@
 </section>
 
 
-
 <!-- =====================================================
-                HOW TO ORDER
+                    HOW TO ORDER
 ===================================================== -->
 
-<section class="how-order">
+<section class="how-order-section">
 
     <div class="container">
 
         <div class="section-heading text-center">
 
             <span class="section-small-title">
-
                 🛒 EASY ORDERING
-
             </span>
 
             <h2>
-
                 How To Order
-
             </h2>
 
             <p>
-
-                Ordering your favourite cake
-                is simple.
-
+                Ordering your favourite cake is simple.
             </p>
 
         </div>
 
+        <div class="row g-4">
 
-        <div class="row g-4 mt-3">
+            <div class="col-md-6 col-lg-3">
 
-
-            <div class="col-lg-4">
-
-                <div class="order-step">
+                <div class="step-card text-center">
 
                     <div class="step-number">
-
-                        01
-
+                        1
                     </div>
 
                     <h3>
-
-                        Choose Your Cake
-
+                        Choose Cake
                     </h3>
 
                     <p>
-
-                        Browse our cake collection
-                        and choose your favourite.
-
+                        Select your favourite cake.
                     </p>
 
                 </div>
@@ -823,28 +533,20 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3">
 
-            <div class="col-lg-4">
-
-                <div class="order-step">
+                <div class="step-card text-center">
 
                     <div class="step-number">
-
-                        02
-
+                        2
                     </div>
 
                     <h3>
-
-                        Send Your Details
-
+                        Select Weight
                     </h3>
 
                     <p>
-
-                        Tell us your name, mobile
-                        number and delivery date.
-
+                        Select cake weight and quantity.
                     </p>
 
                 </div>
@@ -852,28 +554,41 @@
             </div>
 
 
+            <div class="col-md-6 col-lg-3">
 
-            <div class="col-lg-4">
-
-                <div class="order-step">
+                <div class="step-card text-center">
 
                     <div class="step-number">
-
-                        03
-
+                        3
                     </div>
 
                     <h3>
-
-                        Confirm On WhatsApp
-
+                        Give Details
                     </h3>
 
                     <p>
+                        Enter delivery date and your details.
+                    </p>
 
-                        We will confirm your order
-                        through WhatsApp.
+                </div>
 
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="step-card text-center">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        WhatsApp Order
+                    </h3>
+
+                    <p>
+                        Confirm your order through WhatsApp.
                     </p>
 
                 </div>
@@ -887,137 +602,92 @@
 </section>
 
 
-
 <!-- =====================================================
-                REVIEWS
+                    REVIEWS
 ===================================================== -->
 
-<section class="reviews-section"
-    id="reviews">
+<section class="reviews-section" id="reviews">
 
     <div class="container">
 
         <div class="section-heading text-center">
 
             <span class="section-small-title">
-
                 ⭐ CUSTOMER LOVE
-
             </span>
 
             <h2>
-
                 What Our Customers Say
-
             </h2>
+
+            <p>
+                Your happiness is our biggest motivation.
+            </p>
 
         </div>
 
+        <div class="row g-4">
 
-        <div class="row g-4 mt-3">
-
-
-            <div class="col-lg-4">
+            <div class="col-md-4">
 
                 <div class="review-card">
 
                     <div class="rating">
-
                         ⭐⭐⭐⭐⭐
-
                     </div>
 
                     <p>
-
-                        "Cake was very fresh and
-                        delicious. The design was
-                        exactly what I wanted."
-
+                        "The cake was fresh, beautiful and delicious.
+                        Everyone loved it!"
                     </p>
 
                     <h4>
-
                         Happy Customer
-
                     </h4>
-
-                    <small>
-
-                        Shahrasti
-
-                    </small>
 
                 </div>
 
             </div>
 
 
-
-            <div class="col-lg-4">
+            <div class="col-md-4">
 
                 <div class="review-card">
 
                     <div class="rating">
-
                         ⭐⭐⭐⭐⭐
-
                     </div>
 
                     <p>
-
-                        "Beautiful cake and
-                        excellent taste. Highly
-                        recommended."
-
+                        "Beautiful design and amazing taste.
+                        Highly satisfied with the cake."
                     </p>
 
                     <h4>
-
                         Happy Customer
-
                     </h4>
-
-                    <small>
-
-                        Monohargonj
-
-                    </small>
 
                 </div>
 
             </div>
 
 
-
-            <div class="col-lg-4">
+            <div class="col-md-4">
 
                 <div class="review-card">
 
                     <div class="rating">
-
                         ⭐⭐⭐⭐⭐
-
                     </div>
 
                     <p>
-
-                        "Loved the presentation
-                        and taste. Will definitely
-                        order again."
-
+                        "Loved the homemade taste and beautiful
+                        finishing. Thank you!"
                     </p>
 
                     <h4>
-
                         Happy Customer
-
                     </h4>
-
-                    <small>
-
-                        Chandpur
-
-                    </small>
 
                 </div>
 
@@ -1030,109 +700,41 @@
 </section>
 
 
-
 <!-- =====================================================
-                DELIVERY AREA
+                    DELIVERY AREA
 ===================================================== -->
 
 <section class="delivery-section">
 
-    <div class="container">
+    <div class="container text-center">
 
-        <div class="row align-items-center">
+        <div class="section-heading">
 
+            <span class="section-small-title">
+                🚚 DELIVERY
+            </span>
 
-            <div class="col-lg-6">
+            <h2>
+                Delivery Area
+            </h2>
 
-                <span class="section-small-title">
+            <p>
+                We currently serve customers in:
+            </p>
 
-                    📍 DELIVERY AREA
+        </div>
 
-                </span>
+        <div class="delivery-area-box">
 
-                <h2>
+            <i class="bi bi-geo-alt-fill"></i>
 
-                    Serving Your Celebrations
+            <h3>
+                Shahrasti & Monohargonj
+            </h3>
 
-                </h2>
-
-                <p>
-
-                    We currently accept cake orders
-                    around Shahrasti and nearby areas.
-
-                </p>
-
-
-                <div class="delivery-list">
-
-                    <span>
-                        <i class="bi bi-check-circle-fill"></i>
-                        Bernaiya
-                    </span>
-
-                    <span>
-                        <i class="bi bi-check-circle-fill"></i>
-                        Shahrasti
-                    </span>
-
-                    <span>
-                        <i class="bi bi-check-circle-fill"></i>
-                        Monohargonj
-                    </span>
-
-                    <span>
-                        <i class="bi bi-check-circle-fill"></i>
-                        Nearby Areas
-                    </span>
-
-                </div>
-
-
-                <p class="mt-3">
-
-                    <strong>
-
-                        📌 Location:
-                        Bernaiya, Shahrasti,
-                        Chandpur-3623
-
-                    </strong>
-
-                </p>
-
-            </div>
-
-
-            <div class="col-lg-6">
-
-                <div class="location-box">
-
-                    <i class="bi bi-geo-alt-fill"></i>
-
-                    <h3>
-
-                        Bernaiya, Shahrasti
-
-                    </h3>
-
-                    <p>
-
-                        Chandpur-3623
-
-                    </p>
-
-                    <a href="https://share.google/gxsnvxKFR1uN380WW"
-                        target="_blank"
-                        class="btn btn-pink">
-
-                        View Location
-
-                    </a>
-
-                </div>
-
-            </div>
+            <p>
+                Chandpur and nearby areas.
+            </p>
 
         </div>
 
@@ -1141,83 +743,53 @@
 </section>
 
 
-
 <!-- =====================================================
-                CONTACT
+                    CONTACT
 ===================================================== -->
 
-<section class="contact-section"
-    id="contact">
+<section class="contact-section" id="contact">
 
     <div class="container">
 
         <div class="section-heading text-center">
 
             <span class="section-small-title">
-
                 📞 GET IN TOUCH
-
             </span>
 
             <h2>
-
-                Let's Create Something Sweet
-
+                Contact Cake Creation by Ripa
             </h2>
 
             <p>
-
-                Have a question or want to order
-                a custom cake? Contact us.
-
+                Have a question or want to order a custom cake?
+                Contact us anytime.
             </p>
 
         </div>
 
+        <div class="row g-4 justify-content-center">
 
-        <div class="row g-4 mt-4">
+            <div class="col-md-4">
 
-
-            <div class="col-lg-4">
-
-                <div class="contact-card">
+                <div class="contact-card text-center">
 
                     <i class="bi bi-telephone-fill"></i>
 
-                    <h4>
+                    <h3>
+                        Call / WhatsApp
+                    </h3>
 
-                        Call Us
-
-                    </h4>
-
-                    <a href="tel:01635651905">
-
+                    <p>
                         01635651905
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="col-lg-4">
-
-                <div class="contact-card">
-
-                    <i class="bi bi-whatsapp"></i>
-
-                    <h4>
-
-                        WhatsApp
-
-                    </h4>
+                    </p>
 
                     <a href="https://wa.me/8801635651905"
-                        target="_blank">
+                        target="_blank"
+                        class="btn btn-pink">
 
-                        Chat With Us
+                        <i class="bi bi-whatsapp"></i>
+                        WhatsApp Us
 
                     </a>
 
@@ -1226,25 +798,46 @@
             </div>
 
 
+            <div class="col-md-4">
 
-            <div class="col-lg-4">
+                <div class="contact-card text-center">
 
-                <div class="contact-card">
+                    <i class="bi bi-envelope-fill"></i>
 
-                    <i class="bi bi-facebook"></i>
+                    <h3>
+                        Email
+                    </h3>
 
-                    <h4>
+                    <p>
+                        cakecreationbyripa@gmail.com
+                    </p>
 
-                        Facebook
+                    <a href="mailto:cakecreationbyripa@gmail.com"
+                        class="btn btn-outline-dark">
 
-                    </h4>
-
-                    <a href="https://www.facebook.com/CakeCreationByRipa"
-                        target="_blank">
-
-                        Visit Our Page
+                        Send Email
 
                     </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card text-center">
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                    <h3>
+                        Location
+                    </h3>
+
+                    <p>
+                        Bernaiya, Shahrasti,
+                        Chandpur-3623
+                    </p>
 
                 </div>
 
@@ -1255,7 +848,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1268,7 +860,6 @@
 
         <div class="row g-4">
 
-
             <div class="col-lg-5">
 
                 <div class="footer-brand">
@@ -1277,18 +868,14 @@
                         alt="Cake Creation by Ripa">
 
                     <h3>
-
                         Cake Creation by Ripa
-
                     </h3>
 
                 </div>
 
                 <p>
-
                     Homemade cakes made with love
                     for your special moments.
-
                 </p>
 
                 <div class="footer-social">
@@ -1315,9 +902,7 @@
             <div class="col-lg-3">
 
                 <h4>
-
                     Quick Links
-
                 </h4>
 
                 <ul>
@@ -1329,7 +914,7 @@
                     </li>
 
                     <li>
-                        <a href="#cakes">
+                        <a href="cakes.html">
                             Cakes
                         </a>
                     </li>
@@ -1354,59 +939,41 @@
             <div class="col-lg-4">
 
                 <h4>
-
                     Contact
-
                 </h4>
 
                 <p>
-
                     <i class="bi bi-geo-alt"></i>
-
                     Bernaiya, Shahrasti,
                     Chandpur-3623
-
                 </p>
 
                 <p>
-
                     <i class="bi bi-telephone"></i>
-
                     01635651905
-
                 </p>
 
                 <p>
-
                     <i class="bi bi-envelope"></i>
-
                     cakecreationbyripa@gmail.com
-
                 </p>
 
                 <p>
-
                     <i class="bi bi-clock"></i>
-
                     Open 24 Hours
-
                 </p>
 
             </div>
 
         </div>
 
-
         <hr>
-
 
         <div class="footer-bottom">
 
             <p>
-
                 © 2026 Cake Creation by Ripa.
                 All Rights Reserved.
-
             </p>
 
         </div>
@@ -1414,7 +981,6 @@
     </div>
 
 </footer>
-
 
 
 <!-- =====================================================
@@ -1430,31 +996,13 @@
 </a>
 
 
-
 <!-- =====================================================
-                BACK TO TOP
-===================================================== -->
-
-<a href="#home"
-    class="back-to-top">
-
-    <i class="bi bi-arrow-up"></i>
-
-</a>
-
-
-
-<!-- Bootstrap JS -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- =====================================================
-                ORDER WIZARD
+                    ORDER MODAL
 ===================================================== -->
 
 <div class="order-modal" id="orderModal">
 
-    <div class="order-box">
+    <div class="order-modal-content">
 
         <button class="order-close" id="closeOrder">
             <i class="bi bi-x-lg"></i>
@@ -1462,11 +1010,17 @@
 
         <div class="order-header">
 
-            <span>🍰 CAKE ORDER</span>
+            <span class="section-small-title">
+                🍰 CAKE ORDER
+            </span>
 
-            <h2>Place Your Order</h2>
+            <h2>
+                Place Your Order
+            </h2>
 
-            <p>Fill in the details below and we'll confirm your order on WhatsApp.</p>
+            <p>
+                Complete the steps below and send your order through WhatsApp.
+            </p>
 
         </div>
 
@@ -1484,7 +1038,7 @@
 
             <div class="progress-step">
                 <span>2</span>
-                <small>Quantity</small>
+                <small>Weight</small>
             </div>
 
             <div class="progress-line"></div>
@@ -1501,466 +1055,398 @@
                 <small>Details</small>
             </div>
 
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span>5</span>
+                <small>Confirm</small>
+            </div>
+
         </div>
 
 
-        <!-- STEP 1 -->
+        <div class="order-wizard">
 
-        <div class="order-step-form active" data-step="1">
 
-            <h3>🍰 Select Your Cake</h3>
+            <!-- STEP 1 -->
 
-            <p class="step-description">
-                You selected:
-            </p>
+            <div class="order-step-form active"
+                data-step="1">
 
-            <div class="selected-cake">
-
-                <div class="selected-cake-icon">
-                    🎂
+                <div class="order-step-icon">
+                    <i class="bi bi-cake2-fill"></i>
                 </div>
 
-                <div>
+                <h3>
+                    Selected Cake
+                </h3>
+
+                <div class="selected-cake-box">
+
+                    <span>
+                        Your selected cake
+                    </span>
 
                     <strong id="selectedCakeName">
-                        Please select a cake
-                    </strong>
-
-                    <small>
-                        Cake Creation by Ripa
-                    </small>
-
-                </div>
-
-            </div>
-
-            <button class="wizard-next btn-pink">
-                Continue
-                <i class="bi bi-arrow-right"></i>
-            </button>
-
-        </div>
-
-
-        <!-- STEP 2 -->
-
-        <!-- STEP 2 — CAKE WEIGHT & QUANTITY -->
-
-<div class="order-step-form" data-step="2">
-
-    <h3>⚖️ Choose Cake Size</h3>
-
-    <p class="step-description">
-        Select your preferred cake weight and quantity.
-    </p>
-
-
-    <!-- Cake Weight -->
-
-    <div class="form-group">
-
-        <label for="cakeWeight">
-            Cake Weight
-        </label>
-
-        <select id="cakeWeight">
-
-            <option value="0.5">
-                ½ Pound
-            </option>
-
-            <option value="1" selected>
-                1 Pound
-            </option>
-
-            <option value="1.5">
-                1.5 Pound
-            </option>
-
-            <option value="2">
-                2 Pound
-            </option>
-
-            <option value="2.5">
-                2.5 Pound
-            </option>
-
-            <option value="3">
-                3 Pound
-            </option>
-
-            <option value="custom">
-                Custom Weight
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <!-- Custom Weight -->
-
-    <div class="form-group"
-        id="customWeightGroup"
-        style="display:none;">
-
-        <label for="customWeight">
-
-            Custom Weight
-
-        </label>
-
-        <input
-            type="text"
-            id="customWeight"
-            placeholder="Example: 4 Pound"
-        >
-
-    </div>
-
-
-    <!-- Quantity -->
-
-    <div class="form-group">
-
-        <label>
-            Quantity
-        </label>
-
-        <div class="quantity-box">
-
-            <button
-                type="button"
-                id="minusQty">
-
-                −
-
-            </button>
-
-            <span id="cakeQuantity">
-
-                1
-
-            </span>
-
-            <button
-                type="button"
-                id="plusQty">
-
-                +
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- Price -->
-
-    <div class="selected-price">
-
-        <span>
-            Estimated Price
-        </span>
-
-        <strong id="estimatedPrice">
-            ৳650
-        </strong>
-
-    </div>
-
-
-    <div class="wizard-buttons">
-
-        <button class="wizard-back">
-
-            <i class="bi bi-arrow-left"></i>
-
-            Back
-
-        </button>
-
-
-        <button class="wizard-next btn-pink">
-
-            Continue
-
-            <i class="bi bi-arrow-right"></i>
-
-        </button>
-
-    </div>
-
-</div>
-
-
-        <!-- STEP 3 -->
-
-        <div class="order-step-form" data-step="3">
-
-            <h3>📅 Delivery Date</h3>
-
-            <p class="step-description">
-                When would you like to receive your cake?
-            </p>
-
-            <div class="form-group">
-
-                <label for="deliveryDate">
-                    Delivery Date
-                </label>
-
-                <input
-                    type="date"
-                    id="deliveryDate"
-                    required
-                >
-
-            </div>
-
-            <div class="wizard-buttons">
-
-                <button class="wizard-back">
-                    <i class="bi bi-arrow-left"></i>
-                    Back
-                </button>
-
-                <button class="wizard-next btn-pink">
-                    Continue
-                    <i class="bi bi-arrow-right"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- STEP 4 -->
-
-        <div class="order-step-form" data-step="4">
-
-            <h3>👤 Your Details</h3>
-
-            <p class="step-description">
-                Please provide your contact details.
-            </p>
-
-
-            <div class="form-group">
-
-                <label for="customerName">
-                    Your Name
-                </label>
-
-                <input
-                    type="text"
-                    id="customerName"
-                    placeholder="Enter your name"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="customerMobile">
-                    Mobile Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="customerMobile"
-                    placeholder="01XXXXXXXXX"
-                    maxlength="11"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="deliveryAddress">
-                    Delivery Area
-                </label>
-
-                <input
-                    type="text"
-                    id="deliveryAddress"
-                    placeholder="e.g. Shahrasti / Monohargonj"
-                    required
-                >
-
-            </div>
-
-
-            <div class="wizard-buttons">
-
-                <button class="wizard-back">
-                    <i class="bi bi-arrow-left"></i>
-                    Back
-                </button>
-
-                <button class="wizard-next btn-pink">
-                    Review Order
-                    <i class="bi bi-arrow-right"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- STEP 5 -->
-
-        <div class="order-step-form" data-step="5">
-
-            <h3>💬 Confirm Your Order</h3>
-
-            <p class="step-description">
-                Please check your order details.
-            </p>
-
-
-            <div class="order-summary">
-
-                <div class="summary-row">
-
-    <span>
-        Cake Weight
-    </span>
-
-    <strong id="summaryWeight">
-        -
-    </strong>
-
-</div>
-
-
-<div class="summary-row">
-
-    <span>
-        Total Price
-    </span>
-
-    <strong id="summaryPrice">
-        -
-    </strong>
-
-</div>
-
-                <div class="summary-row">
-
-                    <span>
-                        Cake
-                    </span>
-
-                    <strong id="summaryCake">
                         -
                     </strong>
 
                 </div>
 
+                <div class="wizard-actions">
 
-                <div class="summary-row">
+                    <button class="btn btn-pink wizard-next">
+                        Next
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
 
-                    <span>
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="order-step-form"
+                data-step="2">
+
+                <div class="order-step-icon">
+                    <i class="bi bi-box-seam-fill"></i>
+                </div>
+
+                <h3>
+                    Weight & Quantity
+                </h3>
+
+                <div class="mb-4">
+
+                    <label for="cakeWeight"
+                        class="form-label">
+
+                        Cake Weight
+
+                    </label>
+
+                    <select id="cakeWeight"
+                        class="form-select">
+
+                        <option value="0.5">
+                            0.5 Pound
+                        </option>
+
+                        <option value="1"
+                            selected>
+                            1 Pound
+                        </option>
+
+                        <option value="1.5">
+                            1.5 Pound
+                        </option>
+
+                        <option value="2">
+                            2 Pound
+                        </option>
+
+                        <option value="2.5">
+                            2.5 Pound
+                        </option>
+
+                        <option value="3">
+                            3 Pound
+                        </option>
+
+                        <option value="custom">
+                            Custom Weight
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="mb-4"
+                    id="customWeightGroup"
+                    style="display:none;">
+
+                    <label for="customWeight"
+                        class="form-label">
+
+                        Custom Weight
+
+                    </label>
+
+                    <input type="text"
+                        id="customWeight"
+                        class="form-control"
+                        placeholder="Example: 4 Pound">
+
+                </div>
+
+
+                <div class="quantity-box">
+
+                    <label class="form-label">
                         Quantity
+                    </label>
+
+                    <div class="quantity-controls">
+
+                        <button type="button"
+                            id="minusQty"
+                            class="quantity-btn">
+
+                            <i class="bi bi-dash"></i>
+
+                        </button>
+
+                        <span id="cakeQuantity">
+                            1
+                        </span>
+
+                        <button type="button"
+                            id="plusQty"
+                            class="quantity-btn">
+
+                            <i class="bi bi-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="estimated-price-box">
+
+                    <span>
+                        Estimated Price
                     </span>
 
-                    <strong id="summaryQuantity">
-                        1
+                    <strong id="estimatedPrice">
+                        ৳700
                     </strong>
 
                 </div>
 
 
-                <div class="summary-row">
+                <div class="wizard-actions">
 
-                    <span>
-                        Delivery Date
-                    </span>
+                    <button class="btn btn-outline-dark wizard-back">
+                        <i class="bi bi-arrow-left"></i>
+                        Back
+                    </button>
 
-                    <strong id="summaryDate">
-                        -
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Customer
-                    </span>
-
-                    <strong id="summaryName">
-                        -
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Mobile
-                    </span>
-
-                    <strong id="summaryMobile">
-                        -
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Delivery Area
-                    </span>
-
-                    <strong id="summaryAddress">
-                        -
-                    </strong>
+                    <button class="btn btn-pink wizard-next">
+                        Next
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <div class="whatsapp-note">
+            <!-- STEP 3 -->
 
-                <i class="bi bi-whatsapp"></i>
+            <div class="order-step-form"
+                data-step="3">
 
-                Your order will be sent to
-                Cake Creation by Ripa through WhatsApp.
+                <div class="order-step-icon">
+                    <i class="bi bi-calendar-heart-fill"></i>
+                </div>
+
+                <h3>
+                    Delivery Date
+                </h3>
+
+                <div class="mb-4">
+
+                    <label for="deliveryDate"
+                        class="form-label">
+
+                        Select Delivery Date
+
+                    </label>
+
+                    <input type="date"
+                        id="deliveryDate"
+                        class="form-control">
+
+                </div>
+
+                <div class="wizard-actions">
+
+                    <button class="btn btn-outline-dark wizard-back">
+                        <i class="bi bi-arrow-left"></i>
+                        Back
+                    </button>
+
+                    <button class="btn btn-pink wizard-next">
+                        Next
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
 
             </div>
 
 
-            <div class="wizard-buttons">
+            <!-- STEP 4 -->
 
-                <button class="wizard-back">
+            <div class="order-step-form"
+                data-step="4">
 
-                    <i class="bi bi-arrow-left"></i>
+                <div class="order-step-icon">
+                    <i class="bi bi-person-fill"></i>
+                </div>
 
-                    Back
+                <h3>
+                    Your Details
+                </h3>
 
-                </button>
+                <div class="mb-3">
+
+                    <label for="customerName"
+                        class="form-label">
+
+                        Your Name
+
+                    </label>
+
+                    <input type="text"
+                        id="customerName"
+                        class="form-control"
+                        placeholder="Enter your name">
+
+                </div>
 
 
-                <button
-                    class="confirm-order-btn"
-                    id="confirmOrder">
+                <div class="mb-3">
 
-                    <i class="bi bi-whatsapp"></i>
+                    <label for="customerMobile"
+                        class="form-label">
 
-                    Confirm via WhatsApp
+                        Mobile Number
 
-                </button>
+                    </label>
+
+                    <input type="tel"
+                        id="customerMobile"
+                        class="form-control"
+                        placeholder="01XXXXXXXXX"
+                        maxlength="11">
+
+                </div>
+
+
+                <div class="mb-4">
+
+                    <label for="deliveryAddress"
+                        class="form-label">
+
+                        Delivery Address
+
+                    </label>
+
+                    <textarea id="deliveryAddress"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Enter delivery address"></textarea>
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+                    <button class="btn btn-outline-dark wizard-back">
+                        <i class="bi bi-arrow-left"></i>
+                        Back
+                    </button>
+
+                    <button class="btn btn-pink wizard-next">
+                        Next
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="order-step-form"
+                data-step="5">
+
+                <div class="order-step-icon">
+                    <i class="bi bi-check-circle-fill"></i>
+                </div>
+
+                <h3>
+                    Confirm Your Order
+                </h3>
+
+                <div class="order-summary">
+
+                    <div class="summary-row">
+                        <span>Cake</span>
+                        <strong id="summaryCake">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Weight</span>
+                        <strong id="summaryWeight">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Quantity</span>
+                        <strong id="summaryQuantity">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Estimated Price</span>
+                        <strong id="summaryPrice">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery Date</span>
+                        <strong id="summaryDate">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Name</span>
+                        <strong id="summaryName">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Mobile</span>
+                        <strong id="summaryMobile">-</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Address</span>
+                        <strong id="summaryAddress">-</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="wizard-actions">
+
+                    <button class="btn btn-outline-dark wizard-back">
+                        <i class="bi bi-arrow-left"></i>
+                        Back
+                    </button>
+
+                    <button class="btn btn-pink"
+                        id="confirmOrder">
+
+                        <i class="bi bi-whatsapp"></i>
+                        Confirm & WhatsApp
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -1971,10 +1457,19 @@
 </div>
 
 
-<!-- Order Wizard Script -->
+<!-- Bootstrap JS -->
 
-<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Correct root-level script path -->
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
+'''
+
+path = Path("/mnt/data/index.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created: {path}")
