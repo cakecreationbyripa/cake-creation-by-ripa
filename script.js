@@ -1,4 +1,4 @@
-script = r'''/* =========================================================
+/* =========================================================
    CAKE CREATION BY RIPA
    COMPLETE SCRIPT.JS
 ========================================================= */
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressSteps = document.querySelectorAll(".progress-step");
     const progressLines = document.querySelectorAll(".progress-line");
 
+
     /* =========================================================
        VARIABLES
     ========================================================= */
@@ -26,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentStep = 1;
     let quantity = 1;
 
+
     /* =========================================================
        CAKE PRICES
-       Pound অনুযায়ী Price
     ========================================================= */
 
     const cakePrices = {
@@ -95,9 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "2.5": 1800,
             "3": 2200
         },
-
-        /* Custom/theme cakes: price will use default until
-           separate custom pricing is decided. */
 
         "Spiderman Theme Cake": {
             "0.5": 650,
@@ -190,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+
     /* =========================================================
        OPEN ORDER MODAL
     ========================================================= */
@@ -198,7 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            selectedCake = this.getAttribute("data-cake") || "";
+            selectedCake =
+                this.getAttribute("data-cake") || "";
 
             const selectedCakeName =
                 document.getElementById("selectedCakeName");
@@ -248,8 +248,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             document.body.classList.add("modal-open");
+
         });
+
     });
+
 
     /* =========================================================
        CLOSE ORDER MODAL
@@ -260,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (orderModal) {
+
         orderModal.addEventListener("click", function (event) {
 
             if (event.target === orderModal) {
@@ -267,7 +271,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
     }
+
 
     function closeModal() {
 
@@ -276,7 +282,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         document.body.classList.remove("modal-open");
+
     }
+
 
     /* =========================================================
        SHOW STEP
@@ -299,29 +307,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
         progressSteps.forEach(function (step, index) {
 
-            step.classList.remove("active", "completed");
+            step.classList.remove(
+                "active",
+                "completed"
+            );
 
             if (index + 1 < stepNumber) {
+
                 step.classList.add("completed");
+
             }
             else if (index + 1 === stepNumber) {
+
                 step.classList.add("active");
+
             }
+
         });
 
         progressLines.forEach(function (line, index) {
 
             if (index + 1 < stepNumber) {
+
                 line.classList.add("completed");
+
             }
             else {
+
                 line.classList.remove("completed");
+
             }
+
         });
 
         currentStep = stepNumber;
+
         updateSummary();
+
     }
+
 
     /* =========================================================
        NEXT BUTTON
@@ -332,121 +356,197 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
 
             /* STEP 1 */
+
             if (currentStep === 1) {
 
                 if (!selectedCake) {
-                    alert("Please select a cake first.");
+
+                    alert(
+                        "Please select a cake first."
+                    );
+
                     return;
                 }
+
             }
 
+
             /* STEP 2 */
+
             if (currentStep === 2) {
 
                 const cakeWeight =
                     document.getElementById("cakeWeight");
 
                 if (!cakeWeight) {
-                    alert("Please select cake weight.");
+
+                    alert(
+                        "Please select cake weight."
+                    );
+
                     return;
                 }
 
                 if (cakeWeight.value === "custom") {
 
                     const customWeight =
-                        document.getElementById("customWeight");
+                        document.getElementById(
+                            "customWeight"
+                        );
 
                     if (
                         !customWeight ||
                         !customWeight.value.trim()
                     ) {
-                        alert("Please enter custom cake weight.");
+
+                        alert(
+                            "Please enter custom cake weight."
+                        );
+
                         return;
                     }
 
                     const customValue =
-                        parseFloat(customWeight.value);
+                        parseFloat(
+                            customWeight.value
+                        );
 
                     if (
                         isNaN(customValue) ||
                         customValue <= 0
                     ) {
-                        alert("Please enter a valid custom weight.");
+
+                        alert(
+                            "Please enter a valid custom weight."
+                        );
+
                         return;
                     }
+
                 }
+
             }
 
+
             /* STEP 3 */
+
             if (currentStep === 3) {
 
                 const deliveryDate =
-                    document.getElementById("deliveryDate");
+                    document.getElementById(
+                        "deliveryDate"
+                    );
 
-                if (!deliveryDate || !deliveryDate.value) {
-                    alert("Please select your delivery date.");
+                if (
+                    !deliveryDate ||
+                    !deliveryDate.value
+                ) {
+
+                    alert(
+                        "Please select your delivery date."
+                    );
+
                     return;
                 }
+
             }
 
+
             /* STEP 4 */
+
             if (currentStep === 4) {
 
                 const nameElement =
-                    document.getElementById("customerName");
+                    document.getElementById(
+                        "customerName"
+                    );
 
                 const mobileElement =
-                    document.getElementById("customerMobile");
+                    document.getElementById(
+                        "customerMobile"
+                    );
 
                 const addressElement =
-                    document.getElementById("deliveryAddress");
+                    document.getElementById(
+                        "deliveryAddress"
+                    );
+
 
                 const name =
                     nameElement
                         ? nameElement.value.trim()
                         : "";
 
+
                 const mobile =
                     mobileElement
                         ? mobileElement.value.trim()
                         : "";
+
 
                 const address =
                     addressElement
                         ? addressElement.value.trim()
                         : "";
 
+
                 if (!name) {
-                    alert("Please enter your name.");
+
+                    alert(
+                        "Please enter your name."
+                    );
+
                     return;
                 }
+
 
                 if (!mobile) {
-                    alert("Please enter your mobile number.");
+
+                    alert(
+                        "Please enter your mobile number."
+                    );
+
                     return;
                 }
 
+
                 if (!/^01[0-9]{9}$/.test(mobile)) {
+
                     alert(
                         "Please enter a valid 11-digit Bangladeshi mobile number."
                     );
+
                     return;
                 }
+
 
                 if (!address) {
-                    alert("Please enter your delivery area.");
+
+                    alert(
+                        "Please enter your delivery area."
+                    );
+
                     return;
                 }
 
+
                 updateSummary();
+
             }
 
+
             if (currentStep < 5) {
-                showStep(currentStep + 1);
+
+                showStep(
+                    currentStep + 1
+                );
+
             }
 
         });
-    });
+
+    }
+
 
     /* =========================================================
        BACK BUTTON
@@ -457,11 +557,17 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
 
             if (currentStep > 1) {
-                showStep(currentStep - 1);
+
+                showStep(
+                    currentStep - 1
+                );
+
             }
 
         });
+
     });
+
 
     /* =========================================================
        CAKE WEIGHT
@@ -471,33 +577,51 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("cakeWeight");
 
     const customWeightGroup =
-        document.getElementById("customWeightGroup");
+        document.getElementById(
+            "customWeightGroup"
+        );
 
     const customWeight =
-        document.getElementById("customWeight");
+        document.getElementById(
+            "customWeight"
+        );
+
 
     if (cakeWeight) {
 
-        cakeWeight.addEventListener("change", function () {
+        cakeWeight.addEventListener(
+            "change",
+            function () {
 
-            if (this.value === "custom") {
+                if (this.value === "custom") {
 
-                if (customWeightGroup) {
-                    customWeightGroup.style.display = "block";
+                    if (customWeightGroup) {
+
+                        customWeightGroup.style.display =
+                            "block";
+
+                    }
+
+                }
+                else {
+
+                    if (customWeightGroup) {
+
+                        customWeightGroup.style.display =
+                            "none";
+
+                    }
+
                 }
 
-            }
-            else {
+                updateCakePrice();
+                updateSummary();
 
-                if (customWeightGroup) {
-                    customWeightGroup.style.display = "none";
-                }
             }
+        );
 
-            updateCakePrice();
-            updateSummary();
-        });
     }
+
 
     /* =========================================================
        CUSTOM WEIGHT
@@ -505,10 +629,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (customWeight) {
 
-        customWeight.addEventListener("input", function () {
-            updateSummary();
-        });
+        customWeight.addEventListener(
+            "input",
+            function () {
+
+                updateSummary();
+
+            }
+        );
+
     }
+
 
     /* =========================================================
        QUANTITY
@@ -523,41 +654,62 @@ document.addEventListener("DOMContentLoaded", function () {
     const cakeQuantity =
         document.getElementById("cakeQuantity");
 
+
     if (minusQty) {
 
-        minusQty.addEventListener("click", function () {
+        minusQty.addEventListener(
+            "click",
+            function () {
 
-            if (quantity > 1) {
+                if (quantity > 1) {
 
-                quantity--;
+                    quantity--;
 
-                if (cakeQuantity) {
-                    cakeQuantity.textContent = quantity;
+                    if (cakeQuantity) {
+
+                        cakeQuantity.textContent =
+                            quantity;
+
+                    }
+
+                    updateCakePrice();
+                    updateSummary();
+
                 }
 
-                updateCakePrice();
-                updateSummary();
             }
-        });
+        );
+
     }
+
 
     if (plusQty) {
 
-        plusQty.addEventListener("click", function () {
+        plusQty.addEventListener(
+            "click",
+            function () {
 
-            if (quantity < 20) {
+                if (quantity < 20) {
 
-                quantity++;
+                    quantity++;
 
-                if (cakeQuantity) {
-                    cakeQuantity.textContent = quantity;
+                    if (cakeQuantity) {
+
+                        cakeQuantity.textContent =
+                            quantity;
+
+                    }
+
+                    updateCakePrice();
+                    updateSummary();
+
                 }
 
-                updateCakePrice();
-                updateSummary();
             }
-        });
+        );
+
     }
+
 
     /* =========================================================
        GET CURRENT PRICE
@@ -566,28 +718,41 @@ document.addEventListener("DOMContentLoaded", function () {
     function getCurrentPrice() {
 
         const weightElement =
-            document.getElementById("cakeWeight");
+            document.getElementById(
+                "cakeWeight"
+            );
 
         const weight =
             weightElement
                 ? weightElement.value
                 : "1";
 
+
         if (weight === "custom") {
+
             return null;
+
         }
 
+
         let unitPrice = 650;
+
 
         if (
             cakePrices[selectedCake] &&
             cakePrices[selectedCake][weight]
         ) {
-            unitPrice = cakePrices[selectedCake][weight];
+
+            unitPrice =
+                cakePrices[selectedCake][weight];
+
         }
 
+
         return unitPrice * quantity;
+
     }
+
 
     /* =========================================================
        UPDATE CAKE PRICE
@@ -596,22 +761,36 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCakePrice() {
 
         const priceElement =
-            document.getElementById("estimatedPrice");
+            document.getElementById(
+                "estimatedPrice"
+            );
+
 
         if (!priceElement) {
             return;
         }
 
-        const totalPrice = getCurrentPrice();
+
+        const totalPrice =
+            getCurrentPrice();
+
 
         if (totalPrice === null) {
-            priceElement.textContent = "Custom Price";
+
+            priceElement.textContent =
+                "Custom Price";
+
         }
         else {
+
             priceElement.textContent =
-                "৳" + totalPrice.toLocaleString();
+                "৳" +
+                totalPrice.toLocaleString();
+
         }
+
     }
+
 
     /* =========================================================
        UPDATE ORDER SUMMARY
@@ -620,145 +799,234 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateSummary() {
 
         const nameElement =
-            document.getElementById("customerName");
+            document.getElementById(
+                "customerName"
+            );
 
         const name =
             nameElement
                 ? nameElement.value.trim()
                 : "";
 
+
         const mobileElement =
-            document.getElementById("customerMobile");
+            document.getElementById(
+                "customerMobile"
+            );
 
         const mobile =
             mobileElement
                 ? mobileElement.value.trim()
                 : "";
 
+
         const addressElement =
-            document.getElementById("deliveryAddress");
+            document.getElementById(
+                "deliveryAddress"
+            );
 
         const address =
             addressElement
                 ? addressElement.value.trim()
                 : "";
 
+
         const dateElement =
-            document.getElementById("deliveryDate");
+            document.getElementById(
+                "deliveryDate"
+            );
 
         const date =
             dateElement
                 ? dateElement.value
                 : "";
 
+
         const weightElement =
-            document.getElementById("cakeWeight");
+            document.getElementById(
+                "cakeWeight"
+            );
 
         const weight =
             weightElement
                 ? weightElement.value
                 : "1";
 
+
         let displayWeight;
+
 
         if (weight === "custom") {
 
             displayWeight =
                 customWeight &&
                 customWeight.value.trim()
-                    ? customWeight.value.trim() + " Pound"
+                    ? customWeight.value.trim() +
+                      " Pound"
                     : "Custom";
 
         }
         else {
-            displayWeight = weight + " Pound";
+
+            displayWeight =
+                weight +
+                " Pound";
+
         }
 
-        const totalPrice = getCurrentPrice();
+
+        const totalPrice =
+            getCurrentPrice();
+
 
         let displayPrice;
 
+
         if (totalPrice === null) {
-            displayPrice = "Custom Price";
+
+            displayPrice =
+                "Custom Price";
+
         }
         else {
+
             displayPrice =
-                "৳" + totalPrice.toLocaleString();
+                "৳" +
+                totalPrice.toLocaleString();
+
         }
+
 
         const summaryCake =
-            document.getElementById("summaryCake");
+            document.getElementById(
+                "summaryCake"
+            );
 
         if (summaryCake) {
+
             summaryCake.textContent =
                 selectedCake || "-";
+
         }
+
 
         const summaryWeight =
-            document.getElementById("summaryWeight");
+            document.getElementById(
+                "summaryWeight"
+            );
 
         if (summaryWeight) {
-            summaryWeight.textContent = displayWeight;
+
+            summaryWeight.textContent =
+                displayWeight;
+
         }
+
 
         const summaryQuantity =
-            document.getElementById("summaryQuantity");
+            document.getElementById(
+                "summaryQuantity"
+            );
 
         if (summaryQuantity) {
-            summaryQuantity.textContent = quantity;
+
+            summaryQuantity.textContent =
+                quantity;
+
         }
+
 
         const summaryPrice =
-            document.getElementById("summaryPrice");
+            document.getElementById(
+                "summaryPrice"
+            );
 
         if (summaryPrice) {
-            summaryPrice.textContent = displayPrice;
+
+            summaryPrice.textContent =
+                displayPrice;
+
         }
+
 
         const summaryDate =
-            document.getElementById("summaryDate");
+            document.getElementById(
+                "summaryDate"
+            );
 
         if (summaryDate) {
-            summaryDate.textContent = formatDate(date);
+
+            summaryDate.textContent =
+                formatDate(date);
+
         }
+
 
         const summaryName =
-            document.getElementById("summaryName");
+            document.getElementById(
+                "summaryName"
+            );
 
         if (summaryName) {
-            summaryName.textContent = name || "-";
+
+            summaryName.textContent =
+                name || "-";
+
         }
+
 
         const summaryMobile =
-            document.getElementById("summaryMobile");
+            document.getElementById(
+                "summaryMobile"
+            );
 
         if (summaryMobile) {
-            summaryMobile.textContent = mobile || "-";
+
+            summaryMobile.textContent =
+                mobile || "-";
+
         }
+
 
         const summaryAddress =
-            document.getElementById("summaryAddress");
+            document.getElementById(
+                "summaryAddress"
+            );
 
         if (summaryAddress) {
-            summaryAddress.textContent = address || "-";
+
+            summaryAddress.textContent =
+                address || "-";
+
         }
+
     }
+
 
     /* =========================================================
        LIVE SUMMARY UPDATE
     ========================================================= */
 
     const customerName =
-        document.getElementById("customerName");
+        document.getElementById(
+            "customerName"
+        );
 
     const customerMobile =
-        document.getElementById("customerMobile");
+        document.getElementById(
+            "customerMobile"
+        );
 
     const deliveryAddress =
-        document.getElementById("deliveryAddress");
+        document.getElementById(
+            "deliveryAddress"
+        );
 
     const deliveryDate =
-        document.getElementById("deliveryDate");
+        document.getElementById(
+            "deliveryDate"
+        );
+
 
     [
         customerName,
@@ -778,8 +1046,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 "change",
                 updateSummary
             );
+
         }
+
     });
+
 
     /* =========================================================
        FORMAT DATE
@@ -788,11 +1059,18 @@ document.addEventListener("DOMContentLoaded", function () {
     function formatDate(dateString) {
 
         if (!dateString) {
+
             return "-";
+
         }
 
+
         const date =
-            new Date(dateString + "T00:00:00");
+            new Date(
+                dateString +
+                "T00:00:00"
+            );
+
 
         return date.toLocaleDateString(
             "en-GB",
@@ -802,72 +1080,94 @@ document.addEventListener("DOMContentLoaded", function () {
                 year: "numeric"
             }
         );
+
     }
+
 
     /* =========================================================
        WHATSAPP ORDER
     ========================================================= */
 
     const confirmOrder =
-        document.getElementById("confirmOrder");
+        document.getElementById(
+            "confirmOrder"
+        );
+
 
     if (confirmOrder) {
 
-        confirmOrder.addEventListener("click", function () {
+        confirmOrder.addEventListener(
+            "click",
+            function () {
 
-            const name =
-                customerName
-                    ? customerName.value.trim()
-                    : "";
+                const name =
+                    customerName
+                        ? customerName.value.trim()
+                        : "";
 
-            const mobile =
-                customerMobile
-                    ? customerMobile.value.trim()
-                    : "";
 
-            const address =
-                deliveryAddress
-                    ? deliveryAddress.value.trim()
-                    : "";
+                const mobile =
+                    customerMobile
+                        ? customerMobile.value.trim()
+                        : "";
 
-            const date =
-                deliveryDate
-                    ? deliveryDate.value
-                    : "";
 
-            const weight =
-                cakeWeight
-                    ? cakeWeight.value
-                    : "1";
+                const address =
+                    deliveryAddress
+                        ? deliveryAddress.value.trim()
+                        : "";
 
-            let displayWeight;
 
-            if (weight === "custom") {
+                const date =
+                    deliveryDate
+                        ? deliveryDate.value
+                        : "";
 
-                displayWeight =
-                    customWeight &&
-                    customWeight.value.trim()
-                        ? customWeight.value.trim() + " Pound"
-                        : "Custom";
 
-            }
-            else {
-                displayWeight = weight + " Pound";
-            }
+                const weight =
+                    cakeWeight
+                        ? cakeWeight.value
+                        : "1";
 
-            const totalPriceValue =
-                getCurrentPrice();
 
-            const totalPrice =
-                totalPriceValue === null
-                    ? "Custom Price"
-                    : "৳" +
-                      totalPriceValue.toLocaleString();
+                let displayWeight;
 
-            const formattedDate =
-                formatDate(date);
 
-            const message =
+                if (weight === "custom") {
+
+                    displayWeight =
+                        customWeight &&
+                        customWeight.value.trim()
+                            ? customWeight.value.trim() +
+                              " Pound"
+                            : "Custom";
+
+                }
+                else {
+
+                    displayWeight =
+                        weight +
+                        " Pound";
+
+                }
+
+
+                const totalPriceValue =
+                    getCurrentPrice();
+
+
+                const totalPrice =
+                    totalPriceValue === null
+                        ? "Custom Price"
+                        : "৳" +
+                          totalPriceValue.toLocaleString();
+
+
+                const formattedDate =
+                    formatDate(date);
+
+
+                const message =
 `🍰 *NEW CAKE ORDER*
 
 ━━━━━━━━━━━━━━━━━━
@@ -895,21 +1195,30 @@ document.addEventListener("DOMContentLoaded", function () {
 ❤️ Cake Creation by Ripa
 Homemade Cakes • Made with Love`;
 
-            const whatsappNumber =
-                "8801635651905";
 
-            const whatsappURL =
-                "https://wa.me/" +
-                whatsappNumber +
-                "?text=" +
-                encodeURIComponent(message);
+                const whatsappNumber =
+                    "8801635651905";
 
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
-        });
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(
+                        message
+                    );
+
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            }
+        );
+
     }
+
 
     /* =========================================================
        DELIVERY DATE
@@ -922,24 +1231,36 @@ Homemade Cakes • Made with Love`;
                 .toISOString()
                 .split("T")[0];
 
-        deliveryDate.min = today;
+        deliveryDate.min =
+            today;
+
     }
+
 
     /* =========================================================
        CAKE SEARCH & CATEGORY FILTER
     ========================================================= */
 
     const cakeSearch =
-        document.getElementById("cakeSearch");
+        document.getElementById(
+            "cakeSearch"
+        );
 
     const categoryButtons =
-        document.querySelectorAll(".category-btn");
+        document.querySelectorAll(
+            ".category-btn"
+        );
 
     const cakeItems =
-        document.querySelectorAll(".cake-item");
+        document.querySelectorAll(
+            ".cake-item"
+        );
 
     const noCakeResult =
-        document.getElementById("noCakeResult");
+        document.getElementById(
+            "noCakeResult"
+        );
+
 
     /* =========================================================
        FILTER CAKES
@@ -948,8 +1269,11 @@ Homemade Cakes • Made with Love`;
     function filterCakes() {
 
         if (!cakeItems.length) {
+
             return;
+
         }
+
 
         const searchText =
             cakeSearch
@@ -958,50 +1282,75 @@ Homemade Cakes • Made with Love`;
                     .trim()
                 : "";
 
+
         const activeCategory =
             document.querySelector(
                 ".category-btn.active"
             );
 
+
         const category =
             activeCategory
-                ? activeCategory.dataset.category.toLowerCase()
+                ? activeCategory.dataset.category
+                    .toLowerCase()
                 : "all";
+
 
         let visibleCount = 0;
 
-        cakeItems.forEach(function (item) {
 
-            const cakeText =
-                item.innerText.toLowerCase();
+        cakeItems.forEach(
+            function (item) {
 
-            const itemCategories =
-                item.dataset.category
-                    ? item.dataset.category
-                        .toLowerCase()
-                        .split(/\s+/)
-                    : [];
+                const cakeText =
+                    item.innerText
+                        .toLowerCase();
 
-            const matchesSearch =
-                cakeText.includes(searchText);
 
-            const matchesCategory =
-                category === "all" ||
-                itemCategories.includes(category);
+                const itemCategories =
+                    item.dataset.category
+                        ? item.dataset.category
+                            .toLowerCase()
+                            .split(/\s+/)
+                        : [];
 
-            if (
-                matchesSearch &&
-                matchesCategory
-            ) {
 
-                item.classList.remove("hidden");
-                visibleCount++;
+                const matchesSearch =
+                    cakeText.includes(
+                        searchText
+                    );
+
+
+                const matchesCategory =
+                    category === "all" ||
+                    itemCategories.includes(
+                        category
+                    );
+
+
+                if (
+                    matchesSearch &&
+                    matchesCategory
+                ) {
+
+                    item.classList.remove(
+                        "hidden"
+                    );
+
+                    visibleCount++;
+
+                }
+                else {
+
+                    item.classList.add(
+                        "hidden"
+                    );
+
+                }
 
             }
-            else {
-                item.classList.add("hidden");
-            }
-        });
+        );
+
 
         if (noCakeResult) {
 
@@ -1009,8 +1358,11 @@ Homemade Cakes • Made with Love`;
                 visibleCount === 0
                     ? "block"
                     : "none";
+
         }
+
     }
+
 
     /* =========================================================
        SEARCH EVENT
@@ -1022,36 +1374,52 @@ Homemade Cakes • Made with Love`;
             "input",
             filterCakes
         );
+
     }
+
 
     /* =========================================================
        CATEGORY BUTTON EVENT
     ========================================================= */
 
-    categoryButtons.forEach(function (button) {
+    categoryButtons.forEach(
+        function (button) {
 
-        button.addEventListener(
-            "click",
-            function () {
+            button.addEventListener(
+                "click",
+                function () {
 
-                categoryButtons.forEach(
-                    function (btn) {
-                        btn.classList.remove("active");
-                    }
-                );
+                    categoryButtons.forEach(
+                        function (btn) {
 
-                this.classList.add("active");
+                            btn.classList.remove(
+                                "active"
+                            );
 
-                filterCakes();
-            }
-        );
-    });
+                        }
+                    );
+
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    filterCakes();
+
+                }
+            );
+
+        }
+    );
+
 
     /* =========================================================
        INITIAL FILTER
     ========================================================= */
 
     filterCakes();
+
 
     /* =========================================================
        INITIAL ORDER SUMMARY
@@ -1060,8 +1428,3 @@ Homemade Cakes • Made with Love`;
     updateSummary();
 
 });
-'''
-path = "/mnt/data/script.js"
-with open(path, "w", encoding="utf-8") as f:
-    f.write(script)
-print(path)
